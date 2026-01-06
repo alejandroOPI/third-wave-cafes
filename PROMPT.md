@@ -1,281 +1,82 @@
-# Ralph Development Instructions
+# Third Wave Coffee Map - Babymoon Trip
 
-## Context
-You are Ralph, an autonomous AI development agent working on a [YOUR PROJECT NAME] project.
+## Project Goal
+Build a mobile-first web app showing specialty/third-wave coffee shops for a babymoon trip through Europe.
 
-## Current Objectives
-1. Study specs/* to learn about the project specifications
-2. Review @fix_plan.md for current priorities
-3. Implement the highest priority item using best practices
-4. Use parallel subagents for complex tasks (max 100 concurrent)
-5. Run tests after each implementation
-6. Update documentation and fix_plan.md
+## Trip Itinerary
+- Paris: Jan 6-10, 2026
+- Cortina d'Ampezzo: Jan 10-13, 2026
+- Venice: Jan 13-14, 2026
+- Milan: Jan 14-16, 2026
 
-## Key Principles
-- ONE task per loop - focus on the most important thing
-- Search the codebase before assuming something isn't implemented
-- Use subagents for expensive operations (file searching, analysis)
-- Write comprehensive tests with clear documentation
-- Update @fix_plan.md with your learnings
-- Commit working changes with descriptive messages
+## Technical Requirements
+- Pure HTML/CSS/JS (no frameworks)
+- Mobile-first, works great on iPhone
+- 44px minimum tap targets
+- Mapbox GL JS for maps
+- Deploy to GitHub Pages
 
-## 🧪 Testing Guidelines (CRITICAL)
-- LIMIT testing to ~20% of your total effort per loop
-- PRIORITIZE: Implementation > Documentation > Tests
-- Only write tests for NEW functionality you implement
-- Do NOT refactor existing tests unless broken
-- Do NOT add "additional test coverage" as busy work
-- Focus on CORE functionality first, comprehensive testing later
+## Data Requirements - CRITICAL
+YOU MUST VERIFY ALL DATA. Use web search to confirm:
+1. Each cafe still exists (not permanently closed)
+2. Correct address and coordinates
+3. Is actually specialty/third-wave coffee (not just any cafe)
 
-## Execution Guidelines
-- Before making changes: search codebase using subagents
-- After implementation: run ESSENTIAL tests for the modified code only
-- If tests fail: fix them as part of your current work
-- Keep @AGENT.md updated with build/run instructions
-- Document the WHY behind tests and implementations
-- No placeholder implementations - build it properly
+### Initial Research Data (VERIFY THESE):
 
-## 🎯 Status Reporting (CRITICAL - Ralph needs this!)
+#### PARIS
+- Belleville Brulerie, 10 Rue Pradier, 75019 - roastery
+- Coutume Cafe, 47 Rue de Babylone, 75007 - Scandinavian style
+- Ten Belles, 10 Rue de la Grange aux Belles, 75010 - pastries+coffee
+- Boot Cafe, 19 Rue du Pont aux Choux, 75003 - tiny, great flat white
+- Cafe Lomi, 3 Ter Rue Marcadet, 75018 - roastery
+- Fragments, 76 Rue des Tournelles, 75003 - brunch+coffee
+- Telescope, 5 Rue Villedo, 75001 - pioneer
+- KB CafeShop, 53 Avenue Trudaine, 75009 - Aussie vibes
 
-**IMPORTANT**: At the end of your response, ALWAYS include this status block:
+#### MILAN
+- Orsonero, Via Broggi 15 - best in Milan
+- Cafezal, Via Cesare Battisti 1 - Brazilian
+- Sevengrams, Via Spadari 6 - light roasts
 
-```
----RALPH_STATUS---
-STATUS: IN_PROGRESS | COMPLETE | BLOCKED
-TASKS_COMPLETED_THIS_LOOP: <number>
-FILES_MODIFIED: <number>
-TESTS_STATUS: PASSING | FAILING | NOT_RUN
-WORK_TYPE: IMPLEMENTATION | TESTING | DOCUMENTATION | REFACTORING
-EXIT_SIGNAL: false | true
-RECOMMENDATION: <one line summary of what to do next>
----END_RALPH_STATUS---
-```
+#### VENICE (limited scene)
+- Torrefazione Cannaregio, Fondamenta dei Ormesini 2804
+- Note: Venice has very few specialty options
 
-### When to set EXIT_SIGNAL: true
+#### CORTINA D'AMPEZZO
+- NO third-wave coffee shops exist here
+- App should honestly state this and suggest enjoying traditional Italian espresso
+- Can list best traditional bars: Embassy, Lovat
 
-Set EXIT_SIGNAL to **true** when ALL of these conditions are met:
-1. ✅ All items in @fix_plan.md are marked [x]
-2. ✅ All tests are passing (or no tests exist for valid reasons)
-3. ✅ No errors or warnings in the last execution
-4. ✅ All requirements from specs/ are implemented
-5. ✅ You have nothing meaningful left to implement
+## Features Required
+1. Map view with pins for each city
+2. List view with cafe cards
+3. Filter by city
+4. Each cafe shows: name, address, specialty, link to Google Maps directions
+5. "No specialty coffee" message for Cortina with alternatives
 
-### Examples of proper status reporting:
-
-**Example 1: Work in progress**
-```
----RALPH_STATUS---
-STATUS: IN_PROGRESS
-TASKS_COMPLETED_THIS_LOOP: 2
-FILES_MODIFIED: 5
-TESTS_STATUS: PASSING
-WORK_TYPE: IMPLEMENTATION
-EXIT_SIGNAL: false
-RECOMMENDATION: Continue with next priority task from @fix_plan.md
----END_RALPH_STATUS---
-```
-
-**Example 2: Project complete**
-```
----RALPH_STATUS---
-STATUS: COMPLETE
-TASKS_COMPLETED_THIS_LOOP: 1
-FILES_MODIFIED: 1
-TESTS_STATUS: PASSING
-WORK_TYPE: DOCUMENTATION
-EXIT_SIGNAL: true
-RECOMMENDATION: All requirements met, project ready for review
----END_RALPH_STATUS---
-```
-
-**Example 3: Stuck/blocked**
-```
----RALPH_STATUS---
-STATUS: BLOCKED
-TASKS_COMPLETED_THIS_LOOP: 0
-FILES_MODIFIED: 0
-TESTS_STATUS: FAILING
-WORK_TYPE: DEBUGGING
-EXIT_SIGNAL: false
-RECOMMENDATION: Need human help - same error for 3 loops
----END_RALPH_STATUS---
-```
-
-### What NOT to do:
-- ❌ Do NOT continue with busy work when EXIT_SIGNAL should be true
-- ❌ Do NOT run tests repeatedly without implementing new features
-- ❌ Do NOT refactor code that is already working fine
-- ❌ Do NOT add features not in the specifications
-- ❌ Do NOT forget to include the status block (Ralph depends on it!)
-
-## 📋 Exit Scenarios (Specification by Example)
-
-Ralph's circuit breaker and response analyzer use these scenarios to detect completion.
-Each scenario shows the exact conditions and expected behavior.
-
-### Scenario 1: Successful Project Completion
-**Given**:
-- All items in @fix_plan.md are marked [x]
-- Last test run shows all tests passing
-- No errors in recent logs/
-- All requirements from specs/ are implemented
-
-**When**: You evaluate project status at end of loop
-
-**Then**: You must output:
-```
----RALPH_STATUS---
-STATUS: COMPLETE
-TASKS_COMPLETED_THIS_LOOP: 1
-FILES_MODIFIED: 1
-TESTS_STATUS: PASSING
-WORK_TYPE: DOCUMENTATION
-EXIT_SIGNAL: true
-RECOMMENDATION: All requirements met, project ready for review
----END_RALPH_STATUS---
-```
-
-**Ralph's Action**: Detects EXIT_SIGNAL=true, gracefully exits loop with success message
-
----
-
-### Scenario 2: Test-Only Loop Detected
-**Given**:
-- Last 3 loops only executed tests (npm test, bats, pytest, etc.)
-- No new files were created
-- No existing files were modified
-- No implementation work was performed
-
-**When**: You start a new loop iteration
-
-**Then**: You must output:
-```
----RALPH_STATUS---
-STATUS: IN_PROGRESS
-TASKS_COMPLETED_THIS_LOOP: 0
-FILES_MODIFIED: 0
-TESTS_STATUS: PASSING
-WORK_TYPE: TESTING
-EXIT_SIGNAL: false
-RECOMMENDATION: All tests passing, no implementation needed
----END_RALPH_STATUS---
-```
-
-**Ralph's Action**: Increments test_only_loops counter, exits after 3 consecutive test-only loops
-
----
-
-### Scenario 3: Stuck on Recurring Error
-**Given**:
-- Same error appears in last 5 consecutive loops
-- No progress on fixing the error
-- Error message is identical or very similar
-
-**When**: You encounter the same error again
-
-**Then**: You must output:
-```
----RALPH_STATUS---
-STATUS: BLOCKED
-TASKS_COMPLETED_THIS_LOOP: 0
-FILES_MODIFIED: 2
-TESTS_STATUS: FAILING
-WORK_TYPE: DEBUGGING
-EXIT_SIGNAL: false
-RECOMMENDATION: Stuck on [error description] - human intervention needed
----END_RALPH_STATUS---
-```
-
-**Ralph's Action**: Circuit breaker detects repeated errors, opens circuit after 5 loops
-
----
-
-### Scenario 4: No Work Remaining
-**Given**:
-- All tasks in @fix_plan.md are complete
-- You analyze specs/ and find nothing new to implement
-- Code quality is acceptable
-- Tests are passing
-
-**When**: You search for work to do and find none
-
-**Then**: You must output:
-```
----RALPH_STATUS---
-STATUS: COMPLETE
-TASKS_COMPLETED_THIS_LOOP: 0
-FILES_MODIFIED: 0
-TESTS_STATUS: PASSING
-WORK_TYPE: DOCUMENTATION
-EXIT_SIGNAL: true
-RECOMMENDATION: No remaining work, all specs implemented
----END_RALPH_STATUS---
-```
-
-**Ralph's Action**: Detects completion signal, exits loop immediately
-
----
-
-### Scenario 5: Making Progress
-**Given**:
-- Tasks remain in @fix_plan.md
-- Implementation is underway
-- Files are being modified
-- Tests are passing or being fixed
-
-**When**: You complete a task successfully
-
-**Then**: You must output:
-```
----RALPH_STATUS---
-STATUS: IN_PROGRESS
-TASKS_COMPLETED_THIS_LOOP: 3
-FILES_MODIFIED: 7
-TESTS_STATUS: PASSING
-WORK_TYPE: IMPLEMENTATION
-EXIT_SIGNAL: false
-RECOMMENDATION: Continue with next task from @fix_plan.md
----END_RALPH_STATUS---
-```
-
-**Ralph's Action**: Continues loop, circuit breaker stays CLOSED (normal operation)
-
----
-
-### Scenario 6: Blocked on External Dependency
-**Given**:
-- Task requires external API, library, or human decision
-- Cannot proceed without missing information
-- Have tried reasonable workarounds
-
-**When**: You identify the blocker
-
-**Then**: You must output:
-```
----RALPH_STATUS---
-STATUS: BLOCKED
-TASKS_COMPLETED_THIS_LOOP: 0
-FILES_MODIFIED: 0
-TESTS_STATUS: NOT_RUN
-WORK_TYPE: IMPLEMENTATION
-EXIT_SIGNAL: false
-RECOMMENDATION: Blocked on [specific dependency] - need [what's needed]
----END_RALPH_STATUS---
-```
-
-**Ralph's Action**: Logs blocker, may exit after multiple blocked loops
-
----
+## Design
+- Clean, minimal
+- Use color placeholders (NO stock photos, NO Unsplash)
+- Colors: warm coffee tones
+- Typography: system fonts
 
 ## File Structure
-- specs/: Project specifications and requirements
-- src/: Source code implementation  
-- examples/: Example usage and test cases
-- @fix_plan.md: Prioritized TODO list
-- @AGENT.md: Project build and run instructions
+```
+/
+├── index.html
+├── css/style.css
+├── js/app.js
+├── js/data.js (verified cafe data)
+└── README.md
+```
 
-## Current Task
-Follow @fix_plan.md and choose the most important item to implement next.
-Use your judgment to prioritize what will have the biggest impact on project progress.
+## Mapbox Token
+Use this token: pk.eyJ1IjoiYWxlamFuZHJvb3BpIiwiYSI6ImNtNWw0dnBoZzJhbHkya3B6ZWVsMnRrdXEifQ.Uh_ceEJWjudge6xy9GnXTA
 
-Remember: Quality over speed. Build it right the first time. Know when you're done.
+## Acceptance Criteria
+- [ ] All cafe data verified via web search
+- [ ] Coordinates accurate (within 50m)
+- [ ] No invented/fake cafes
+- [ ] Works on mobile Safari
+- [ ] Honest about Cortina lacking specialty coffee

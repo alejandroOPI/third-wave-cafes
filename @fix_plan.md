@@ -5,6 +5,7 @@
 - [ ] Define core data structures and types
 - [ ] Implement basic input/output handling
 - [ ] Create test framework and initial tests
+- [x] Build static coffee map UI (map + list + filters)
 
 ## Medium Priority
 - [ ] Add error handling and validation
