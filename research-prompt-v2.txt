@@ -1,0 +1,61 @@
+I need comprehensive research on third-wave / specialty coffee shops for a babymoon trip in January 2026. This research must be EXHAUSTIVE and ORGANIZED BY NEIGHBORHOOD.
+
+## DESTINATIONS & DATES:
+1. **Paris, France** (Jan 6-10) - Organize by arrondissement (1st, 2nd, 3rd... 18th, 19th, 20th)
+2. **Cortina d'Ampezzo, Italy** (Jan 10-13) - Small town, list any specialty options
+3. **Switzerland stops** - Research coffee in:
+   - Zurich
+   - Geneva
+   - Lausanne
+   - Bern
+   - Basel
+   - Lucerne
+   - Any other major Swiss cities with specialty coffee scenes
+4. **Venice, Italy** (Jan 13-14) - Organize by sestiere (San Marco, Dorsoduro, Cannaregio, etc.)
+5. **Milan, Italy** (Jan 14-16) - Organize by neighborhood (Brera, Navigli, Porta Venezia, Isola, Centrale, Duomo, etc.)
+
+## FOR EACH COFFEE SHOP PROVIDE:
+- Name
+- Full address
+- Neighborhood/Arrondissement/Sestiere
+- Coordinates (latitude, longitude) if possible
+- Hours of operation
+- Specialty (espresso, filter, cold brew, roastery, etc.)
+- Instagram handle if known
+- Any notes (closed certain days, reservation needed, etc.)
+
+## REQUIREMENTS:
+- Focus on TRUE third-wave/specialty coffee (not regular cafes)
+- Include roasteries and flagship stores
+- Note any that might be closed in January
+- Be thorough - I want at least 5-10 options per major city
+- For Paris, I expect 20+ cafes across arrondissements
+- For Milan, I expect 10+ cafes across neighborhoods
+- For Switzerland, research each city mentioned
+
+## OUTPUT FORMAT:
+Organize as JSON with this structure:
+{
+  "paris": {
+    "1st": [...],
+    "2nd": [...],
+    ...
+  },
+  "switzerland": {
+    "zurich": [...],
+    "geneva": [...],
+    ...
+  },
+  "venice": {
+    "dorsoduro": [...],
+    ...
+  },
+  "milan": {
+    "brera": [...],
+    "navigli": [...],
+    ...
+  },
+  "cortina": [...]
+}
+
+Take your time. Be thorough. Quality over speed.

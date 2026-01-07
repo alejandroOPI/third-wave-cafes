@@ -1,82 +1,120 @@
 # Third Wave Coffee Map - Babymoon Trip
 
 ## Project Goal
-Build a mobile-first web app showing specialty/third-wave coffee shops for a babymoon trip through Europe.
+Build a mobile-first web app showing specialty/third-wave coffee shops for a babymoon trip through Europe. The data has already been researched - your job is to build a beautiful, functional app.
 
 ## Trip Itinerary
-- Paris: Jan 6-10, 2026
-- Cortina d'Ampezzo: Jan 10-13, 2026
-- Venice: Jan 13-14, 2026
-- Milan: Jan 14-16, 2026
+- Paris: Jan 6-10, 2026 (22 cafés)
+- Switzerland: Jan 23-30, 2026 (11 cafés across 6 cities)
+- Venice: Jan 13-14, 2026 (5 cafés)
+- Milan: Jan 14-16, 2026 (10 cafés)
+- Cortina d'Ampezzo: Jan 10-13, 2026 (NO specialty coffee - be honest about this)
 
-## Technical Requirements
-- Pure HTML/CSS/JS (no frameworks)
-- Mobile-first, works great on iPhone
+## Data Source
+The verified café data is in `chatgpt-research-full.json` (48 cafés total). DO NOT invent new cafés. Only use data from this file.
+
+## Technical Stack
+- Pure HTML/CSS/JS (NO frameworks, NO build tools, NO npm)
+- Mobile-first responsive design
+- Mapbox GL JS for interactive maps
+- Single page app with client-side routing
+- Must work when opened directly as file:// (for testing)
+
+## Design Requirements
+
+### Visual Style
+- Warm, editorial aesthetic (think specialty coffee shop vibes)
+- Color palette: cream (#FDF6E3), warm brown (#8B4513), charcoal (#2D2D2D), accent gold (#D4A574)
+- Typography: System fonts, generous line-height (1.6+)
+- No stock photos - use solid color cards with good typography
+- Subtle shadows, rounded corners (8px)
+
+### Mobile UX (CRITICAL)
 - 44px minimum tap targets
-- Mapbox GL JS for maps
-- Deploy to GitHub Pages
+- Bottom navigation bar (thumb-friendly)
+- Card-based café list with swipe hints
+- Pull-to-refresh gesture feel
+- Smooth 60fps animations
+- Test at 375px width (iPhone SE)
 
-## Data Requirements - CRITICAL
-YOU MUST VERIFY ALL DATA. Use web search to confirm:
-1. Each cafe still exists (not permanently closed)
-2. Correct address and coordinates
-3. Is actually specialty/third-wave coffee (not just any cafe)
+### Map Requirements
+- Mapbox GL JS with custom markers
+- Cluster markers when zoomed out
+- Popup on tap showing café name + "Get Directions" link
+- City-level zoom presets
+- Current location button (if permitted)
 
-### Initial Research Data (VERIFY THESE):
+## Features
 
-#### PARIS
-- Belleville Brulerie, 10 Rue Pradier, 75019 - roastery
-- Coutume Cafe, 47 Rue de Babylone, 75007 - Scandinavian style
-- Ten Belles, 10 Rue de la Grange aux Belles, 75010 - pastries+coffee
-- Boot Cafe, 19 Rue du Pont aux Choux, 75003 - tiny, great flat white
-- Cafe Lomi, 3 Ter Rue Marcadet, 75018 - roastery
-- Fragments, 76 Rue des Tournelles, 75003 - brunch+coffee
-- Telescope, 5 Rue Villedo, 75001 - pioneer
-- KB CafeShop, 53 Avenue Trudaine, 75009 - Aussie vibes
+### 1. City Selector (Landing)
+- Large tappable cards for each city
+- Show café count per city
+- Beautiful city imagery or color gradient backgrounds
 
-#### MILAN
-- Orsonero, Via Broggi 15 - best in Milan
-- Cafezal, Via Cesare Battisti 1 - Brazilian
-- Sevengrams, Via Spadari 6 - light roasts
+### 2. Map View
+- Full-screen map with bottom sheet
+- Markers colored by city
+- Tap marker → show café card
+- "List View" toggle
 
-#### VENICE (limited scene)
-- Torrefazione Cannaregio, Fondamenta dei Ormesini 2804
-- Note: Venice has very few specialty options
+### 3. List View
+- Scrollable cards organized by neighborhood
+- Each card shows: Name, Neighborhood, Hours summary, Specialty type
+- Tap card → expand with full details + directions link
 
-#### CORTINA D'AMPEZZO
-- NO third-wave coffee shops exist here
-- App should honestly state this and suggest enjoying traditional Italian espresso
-- Can list best traditional bars: Embassy, Lovat
+### 4. Café Detail
+- Full address
+- Opening hours by day
+- Specialty type (espresso/filter/roastery)
+- Instagram link if available
+- January closure notes (important for trip planning!)
+- "Open in Google Maps" button
 
-## Features Required
-1. Map view with pins for each city
-2. List view with cafe cards
-3. Filter by city
-4. Each cafe shows: name, address, specialty, link to Google Maps directions
-5. "No specialty coffee" message for Cortina with alternatives
-
-## Design
-- Clean, minimal
-- Use color placeholders (NO stock photos, NO Unsplash)
-- Colors: warm coffee tones
-- Typography: system fonts
+### 5. Cortina Special Case
+- Honest message: "Cortina d'Ampezzo doesn't have third-wave specialty coffee shops"
+- Suggest enjoying traditional Italian espresso bars instead
+- List 2-3 recommended traditional bars
 
 ## File Structure
 ```
 /
-├── index.html
-├── css/style.css
-├── js/app.js
-├── js/data.js (verified cafe data)
+├── index.html          (single HTML file with all structure)
+├── css/
+│   └── style.css       (all styles, mobile-first)
+├── js/
+│   ├── app.js          (main app logic, routing, UI)
+│   ├── data.js         (café data exported from JSON)
+│   └── map.js          (Mapbox integration)
+├── chatgpt-research-full.json  (source data - DO NOT MODIFY)
 └── README.md
 ```
 
 ## Mapbox Token
-Use this token: pk.eyJ1IjoiYWxlamFuZHJvb3BpIiwiYSI6ImNtNWw0dnBoZzJhbHkya3B6ZWVsMnRrdXEifQ.Uh_ceEJWjudge6xy9GnXTA
+```
+pk.eyJ1IjoiYWxlamFuZHJvb3BpIiwiYSI6ImNtNWw0dnBoZzJhbHkya3B6ZWVsMnRqdXEifQ.Uh_ceEJWjudge6xy9GnXTA
+```
 
-## Acceptance Criteria
-- [ ] All cafe data verified via web search
-- [ ] Coordinates accurate (within 50m)
-- [ ] No invented/fake cafes
-- [ ] Works on mobile Safari
-- [ ] Honest about Cortina lacking specialty coffee
+## Coordinates Note
+Many cafés in the JSON have null coordinates. For these:
+1. Use the neighborhood name to place them approximately
+2. Or geocode the address using Mapbox Geocoding API
+3. Group null-coordinate cafés at city center with a note
+
+## Quality Checklist
+- [ ] Loads without errors in browser console
+- [ ] All 48 cafés from JSON are displayed
+- [ ] Map shows markers (even if clustered at city centers)
+- [ ] Mobile layout works at 375px width
+- [ ] Tap targets are 44px minimum
+- [ ] No horizontal scroll on mobile
+- [ ] Cortina shows honest "no specialty coffee" message
+- [ ] Links to Google Maps work
+- [ ] Colors match the warm coffee palette
+- [ ] Smooth scrolling and transitions
+
+## Anti-Patterns to Avoid
+- DO NOT use ES modules (import/export) - they don't work with file://
+- DO NOT fetch local JSON - embed the data in data.js
+- DO NOT use placeholder images from external URLs
+- DO NOT invent café data not in the JSON
+- DO NOT use complex build tools

@@ -1,31 +1,1161 @@
-export const cities = [
-  { name: "Paris", center: [2.3522, 48.8566] },
-  { name: "Cortina d'Ampezzo", center: [12.1357, 46.5405], noSpecialty: true },
-  { name: "Venice", center: [12.3155, 45.4408] },
-  { name: "Milan", center: [9.1900, 45.4642] },
-];
+// Auto-generated from chatgpt-research-full.json
+// DO NOT EDIT - regenerate from source
 
-export const cafes = [
-  // Paris
-  { name: "Belleville Brulerie", city: "Paris", address: "10 Rue Pradier, 75019", specialty: "House-roasted single origins", coordinates: [2.3827, 48.8773] },
-  { name: "Coutume Cafe", city: "Paris", address: "47 Rue de Babylone, 75007", specialty: "Scandinavian-style light roasts", coordinates: [2.3173, 48.8515] },
-  { name: "Ten Belles", city: "Paris", address: "10 Rue de la Grange aux Belles, 75010", specialty: "Excellent pastries + coffee", coordinates: [2.3647, 48.8737] },
-  { name: "Boot Cafe", city: "Paris", address: "19 Rue du Pont aux Choux, 75003", specialty: "Tiny space, great flat white", coordinates: [2.3636, 48.8640] },
-  { name: "Cafe Lomi", city: "Paris", address: "3 Ter Rue Marcadet, 75018", specialty: "Industrial roastery space", coordinates: [2.3503, 48.8918] },
-  { name: "Fragments", city: "Paris", address: "76 Rue des Tournelles, 75003", specialty: "Brunch + specialty coffee", coordinates: [2.3661, 48.8568] },
-  { name: "Telescope", city: "Paris", address: "5 Rue Villedo, 75001", specialty: "Pioneer of Paris specialty", coordinates: [2.3378, 48.8661] },
-  { name: "KB CafeShop", city: "Paris", address: "53 Avenue Trudaine, 75009", specialty: "Aussie vibes, avocado toast", coordinates: [2.3404, 48.8818] },
-  
-  // Milan
-  { name: "Orsonero", city: "Milan", address: "Via Broggi 15, 20129", specialty: "Best specialty in Milan", coordinates: [9.2075, 45.4774] },
-  { name: "Cafezal", city: "Milan", address: "Via Cesare Battisti 1, 20122", specialty: "Brazilian owners, excellent espresso", coordinates: [9.1895, 45.4628] },
-  { name: "Sevengrams", city: "Milan", address: "Via Spadari 6, 20123", specialty: "Light roasts, modern space", coordinates: [9.1860, 45.4630] },
-  
-  // Venice
-  { name: "Torrefazione Cannaregio", city: "Venice", address: "Fondamenta dei Ormesini 2804, 30121", specialty: "One of few specialty spots in Venice", coordinates: [12.3267, 45.4458] },
-];
-
-export const cortinaAlternatives = [
-  { name: "Pasticceria Embassy", note: "Best pastries and decent Italian coffee" },
-  { name: "Bar Lovat", note: "Central location, classic Italian bar" },
-];
+window.CAFE_DATA = {
+  "meta": {
+    "trip_context": "Babymoon trip - third-wave/specialty coffee focus",
+    "dates": {
+      "Paris": "2026-01-06 to 2026-01-10",
+      "Cortina_dAmpezzo": "2026-01-10 to 2026-01-13",
+      "Venice": "2026-01-13 to 2026-01-14",
+      "Milan": "2026-01-14 to 2026-01-16",
+      "Switzerland": "Dates not specified"
+    },
+    "notes": [
+      "Opening hours can change seasonally and around holidays. Use Instagram/Google Maps for day-of confirmation.",
+      "Coordinates were only available for a small subset of venues from the captured sources in this session; most entries include null coordinates."
+    ],
+    "coordinates_status": "partial"
+  },
+  "cities": {
+    "Paris": {
+      "center": [
+        2.3522,
+        48.8566
+      ],
+      "cafes": [
+        {
+          "name": "T\u00e9lescope",
+          "address": "5 Rue Villedo, 75001 Paris, France",
+          "neighborhood": "1st",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "11:00-15:00",
+            "Tue": "11:00-15:00",
+            "Wed": "11:00-15:00",
+            "Thu": "11:00-15:00",
+            "Fri": "11:00-15:00",
+            "Sat": "Closed",
+            "Sun": "Closed"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "multi-roaster"
+          },
+          "instagram": null,
+          "januaryNotes": "Often operates with short daytime hours; closed weekends per listing. Verify for early-January updates."
+        },
+        {
+          "name": "Motors Coffee",
+          "address": "7 Rue des Halles, 75001 Paris, France",
+          "neighborhood": "1st",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "08:30-18:00",
+            "Tue": "08:30-18:00",
+            "Wed": "08:30-18:00",
+            "Thu": "08:30-18:00",
+            "Fri": "08:30-18:00",
+            "Sat": "Unknown",
+            "Sun": "Unknown"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Weekday hours listed; weekend/holiday schedule not captured\u2014check Instagram for any New Year adjustments."
+        },
+        {
+          "name": "Caf\u00e9 Nuances (Danielle Casanova)",
+          "address": "25 Rue Danielle Casanova, 75001 Paris, France",
+          "neighborhood": "1st",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "08:30-19:00",
+            "Tue": "08:30-19:00",
+            "Wed": "08:30-19:00",
+            "Thu": "08:30-19:00",
+            "Fri": "08:30-19:00",
+            "Sat": "Unknown",
+            "Sun": "Unknown"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Hours captured for Mon\u2013Fri; verify weekends and holiday hours in January."
+        },
+        {
+          "name": "L'Arbre \u00e0 Caf\u00e9",
+          "address": "10 Rue du Nil, 75002 Paris, France",
+          "neighborhood": "2nd",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "11:30-16:00",
+            "Tue": "08:30-17:00",
+            "Wed": "08:30-17:00",
+            "Thu": "08:30-17:00",
+            "Fri": "08:30-17:00",
+            "Sat": "11:30-16:00",
+            "Sun": "Closed"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "roaster-owned"
+          },
+          "instagram": null,
+          "januaryNotes": "Closed Sundays per listing; expect reduced hours around New Year\u2014confirm before visiting."
+        },
+        {
+          "name": "Substance Caf\u00e9",
+          "address": "30 Rue Dussoubs, 75002 Paris, France",
+          "neighborhood": "2nd",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "08:30-17:00",
+            "Tue": "08:30-17:00",
+            "Wed": "08:30-17:00",
+            "Thu": "08:30-17:00",
+            "Fri": "08:30-17:00",
+            "Sat": "10:00-18:00",
+            "Sun": "10:00-18:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "multi-roaster"
+          },
+          "instagram": null,
+          "januaryNotes": "Generally open weekends per listing; watch for early-January holiday hours."
+        },
+        {
+          "name": "Boot Caf\u00e9",
+          "address": "19 Rue du Pont aux Choux, 75003 Paris, France",
+          "neighborhood": "3rd",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "09:00-16:30",
+            "Tue": "09:00-16:30",
+            "Wed": "09:00-16:30",
+            "Thu": "10:00-16:30",
+            "Fri": "10:00-17:30",
+            "Sat": "10:00-17:30",
+            "Sun": "10:00-17:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "multi-roaster"
+          },
+          "instagram": null,
+          "januaryNotes": "Smaller shop\u2014expect occasional early closes in winter; check Instagram for any January announcements."
+        },
+        {
+          "name": "Tanat - Boutique",
+          "address": "96 Rue des Archives, 75003 Paris, France",
+          "neighborhood": "3rd",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "08:30-19:00",
+            "Tue": "08:30-19:00",
+            "Wed": "08:30-19:00",
+            "Thu": "08:30-19:00",
+            "Fri": "08:30-19:00",
+            "Sat": "09:00-19:00",
+            "Sun": "09:00-19:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "roaster-owned"
+          },
+          "instagram": null,
+          "januaryNotes": "Open daily per listing; check for potential reduced hours around early-January public holidays."
+        },
+        {
+          "name": "Terres de Caf\u00e9 (Blancs Manteaux)",
+          "address": "36 Rue des Blancs Manteaux, 75004 Paris, France",
+          "neighborhood": "4th",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "note": "Hours not captured in this session\u2014confirm on Instagram/Google Maps before visiting."
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "roaster-owned"
+          },
+          "instagram": null,
+          "januaryNotes": "Hours not captured in this session\u2014confirm before visiting (Terres de Caf\u00e9 sometimes posts holiday hours)."
+        },
+        {
+          "name": "Terres de Caf\u00e9 (Bourbon-le-Ch\u00e2teau)",
+          "address": "4 Rue de Bourbon-le-Ch\u00e2teau, 75006 Paris, France",
+          "neighborhood": "6th",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "note": "Hours not captured in this session\u2014confirm on Instagram/Google Maps before visiting."
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "roaster-owned"
+          },
+          "instagram": null,
+          "januaryNotes": "Hours not captured in this session\u2014verify for early January (post-holiday reopening times can vary)."
+        },
+        {
+          "name": "U.Graine",
+          "address": "5 Rue Littr\u00e9, 75006 Paris, France",
+          "neighborhood": "6th",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "note": "Hours not captured in this session\u2014confirm on Instagram/Google Maps before visiting."
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "multi-roaster"
+          },
+          "instagram": null,
+          "januaryNotes": "Hours not captured in this session\u2014confirm before visiting; winter weekdays may be best."
+        },
+        {
+          "name": "Benchy",
+          "address": "50 Rue du Cherche-Midi, 75006 Paris, France",
+          "neighborhood": "6th",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "note": "Hours not captured in this session\u2014confirm on Instagram/Google Maps before visiting."
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Hours not captured in this session\u2014check Instagram for January schedule."
+        },
+        {
+          "name": "Coutume Caf\u00e9",
+          "address": "47 Rue de Babylone, 75007 Paris, France",
+          "neighborhood": "7th",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "note": "Hours not captured in this session\u2014confirm on Instagram/Google Maps before visiting."
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "roaster-owned"
+          },
+          "instagram": null,
+          "januaryNotes": "Hours not captured in this session\u2014confirm; some Paris caf\u00e9s run reduced winter hours."
+        },
+        {
+          "name": "Terres de Caf\u00e9 (La Bourdonnais)",
+          "address": "67 Avenue de la Bourdonnais, 75007 Paris, France",
+          "neighborhood": "7th",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "note": "Hours not captured in this session\u2014confirm on Instagram/Google Maps before visiting."
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "roaster-owned"
+          },
+          "instagram": null,
+          "januaryNotes": "Hours not captured in this session\u2014verify; tourist area can mean stable daily hours."
+        },
+        {
+          "name": "Noir - Coffeeshop & Torr\u00e9facteur",
+          "address": "9 Rue de Luynes, 75007 Paris, France",
+          "neighborhood": "7th",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "note": "Hours not captured in this session\u2014confirm on Instagram/Google Maps before visiting."
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "in-house"
+          },
+          "instagram": null,
+          "januaryNotes": "Roaster-led shop; verify January opening days and any post-holiday closures."
+        },
+        {
+          "name": "Caf\u00e9 Nuances (Madeleine)",
+          "address": "5 Rue de l'Arcade, 75008 Paris, France",
+          "neighborhood": "8th",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "note": "Hours not captured in this session\u2014confirm on Instagram/Google Maps before visiting."
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Hours not captured in this session\u2014confirm especially if visiting on Sunday."
+        },
+        {
+          "name": "KB Caf\u00e9Shop (Trudaine / Pigalle)",
+          "address": "53 Avenue Trudaine, 75009 Paris, France",
+          "neighborhood": "9th",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "note": "Hours not captured in this session\u2014confirm on Instagram/Google Maps before visiting."
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "roaster-owned"
+          },
+          "instagram": null,
+          "januaryNotes": "Hours not captured in this session\u2014verify; many Paris specialty caf\u00e9s close one weekday (often Monday)."
+        },
+        {
+          "name": "Caf\u00e9 Nuances (Galeries Lafayette)",
+          "address": "35 Boulevard Haussmann, 75009 Paris, France",
+          "neighborhood": "9th",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "note": "Hours not captured in this session\u2014confirm on Instagram/Google Maps before visiting."
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Department store location\u2014expect holiday-related schedule shifts; verify day-of."
+        },
+        {
+          "name": "Ten Belles",
+          "address": "10 Rue de la Grange aux Belles, 75010 Paris, France",
+          "neighborhood": "10th",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "08:30-17:30",
+            "Tue": "08:30-17:30",
+            "Wed": "08:30-17:30",
+            "Thu": "10:00-17:30",
+            "Fri": "08:30-17:30",
+            "Sat": "09:00-17:30",
+            "Sun": "09:00-17:30"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "multi-roaster"
+          },
+          "instagram": null,
+          "januaryNotes": "Good winter-friendly daytime hours; check for any early-January staffing/holiday changes."
+        },
+        {
+          "name": "Nilo",
+          "address": "73 Avenue Parmentier, 75011 Paris, France",
+          "neighborhood": "11th",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "Closed",
+            "Tue": "08:00-18:00",
+            "Wed": "08:00-18:00",
+            "Thu": "08:00-18:00",
+            "Fri": "08:00-18:00",
+            "Sat": "09:00-18:00",
+            "Sun": "09:00-18:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "multi-roaster"
+          },
+          "instagram": null,
+          "januaryNotes": "Closed Mondays per listing; plan visits Tue\u2013Sun and check for holiday exceptions."
+        },
+        {
+          "name": "Kott Cafe",
+          "address": "19 Rue Ternaux, 75011 Paris, France",
+          "neighborhood": "11th",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "08:30-16:30",
+            "Tue": "08:30-16:30",
+            "Wed": "08:30-16:30",
+            "Thu": "08:30-16:30",
+            "Fri": "08:30-16:30",
+            "Sat": "Closed",
+            "Sun": "Closed"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "multi-roaster"
+          },
+          "instagram": null,
+          "januaryNotes": "Weekday-focused caf\u00e9; closed weekends per listing\u2014ideal for a weekday coffee walk."
+        },
+        {
+          "name": "Coutume x La Grande \u00c9picerie de Paris (Passy)",
+          "address": "78 Rue de Passy, 75016 Paris, France",
+          "neighborhood": "16th",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "note": "Hours not captured in this session\u2014confirm on Instagram/Google Maps before visiting."
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "roaster-owned"
+          },
+          "instagram": null,
+          "januaryNotes": "Department-store counter; verify hours for early January (can differ from standalone caf\u00e9s)."
+        },
+        {
+          "name": "Cafe Lomi",
+          "address": "3 ter Rue Marcadet, 75018 Paris, France",
+          "neighborhood": "18th",
+          "lat": 48.8566,
+          "lng": 2.3522,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "08:00-17:00",
+            "Tue": "08:00-17:00",
+            "Wed": "08:00-17:00",
+            "Thu": "08:00-17:00",
+            "Fri": "08:00-17:00",
+            "Sat": "09:30-18:00",
+            "Sun": "Closed"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "roaster-owned"
+          },
+          "instagram": null,
+          "januaryNotes": "Closed Sundays per listing; likely a strong pick for beans + espresso on Sat/weekday."
+        }
+      ]
+    },
+    "Switzerland - Zurich": {
+      "center": [
+        8.5417,
+        47.3769
+      ],
+      "cafes": [
+        {
+          "name": "MAME (Seefeld)",
+          "address": "Seefeldstrasse 19, 8008 Z\u00fcrich, Switzerland",
+          "neighborhood": "Seefeld (Kreis 8)",
+          "lat": 47.3769,
+          "lng": 8.5417,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "07:30-17:00",
+            "Tue": "07:30-17:00",
+            "Wed": "07:30-17:00",
+            "Thu": "07:30-17:00",
+            "Fri": "07:30-17:00",
+            "Sat": "08:30-18:00",
+            "Sun": "08:30-18:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "roaster-owned"
+          },
+          "instagram": "@mamespecialtycoffee",
+          "januaryNotes": "Winter hours listed; Swiss public holidays (Jan 1, and sometimes Jan 2) may mean reduced hours\u2014check Instagram for holiday posts."
+        },
+        {
+          "name": "Bean Bank Coffee & Co",
+          "address": "Lagerstrasse 18c, 8004 Z\u00fcrich, Switzerland",
+          "neighborhood": "Europaallee / Langstrasse (Kreis 4)",
+          "lat": 47.3769,
+          "lng": 8.5417,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "07:30-17:30",
+            "Tue": "07:30-17:30",
+            "Wed": "07:30-17:30",
+            "Thu": "07:30-17:30",
+            "Fri": "07:30-17:30",
+            "Sat": "10:00-17:00",
+            "Sun": "10:00-16:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "roaster-owned"
+          },
+          "instagram": null,
+          "januaryNotes": "Sunday hours vary across sources; assume reduced/closed on some Swiss holidays\u2014confirm before visiting."
+        }
+      ]
+    },
+    "Switzerland - Geneva": {
+      "center": [
+        6.1432,
+        46.2044
+      ],
+      "cafes": [
+        {
+          "name": "MAME (Geneva)",
+          "address": "Rue des Voisins 8, 1205 Gen\u00e8ve, Switzerland",
+          "neighborhood": "Plainpalais / Voisins (1205)",
+          "lat": 46.2044,
+          "lng": 6.1432,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "08:00-17:00",
+            "Tue": "08:00-17:00",
+            "Wed": "08:00-17:00",
+            "Thu": "08:00-17:00",
+            "Fri": "08:00-17:00",
+            "Sat": "09:00-17:00",
+            "Sun": "09:00-17:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "roaster-owned"
+          },
+          "instagram": "@mamespecialtycoffee",
+          "januaryNotes": "Good daily coverage; watch for Swiss holiday adjustments early January."
+        },
+        {
+          "name": "Corde Coffee (31 D\u00e9cembre)",
+          "address": "Rue du 31 D\u00e9cembre 32, 1207 Gen\u00e8ve, Switzerland",
+          "neighborhood": "Eaux-Vives (1207)",
+          "lat": 46.2044,
+          "lng": 6.1432,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "07:30-18:00",
+            "Tue": "07:30-18:00",
+            "Wed": "07:30-18:00",
+            "Thu": "07:30-18:00",
+            "Fri": "07:30-18:00",
+            "Sat": "09:30-17:00",
+            "Sun": "09:30-17:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "multi-roaster"
+          },
+          "instagram": null,
+          "januaryNotes": "Open weekends per listing; verify holiday hours around New Year."
+        }
+      ]
+    },
+    "Switzerland - Lausanne": {
+      "center": [
+        6.6323,
+        46.5197
+      ],
+      "cafes": [
+        {
+          "name": "Sleepy Bear Coffee Shop",
+          "address": "Rue du Petit-Ch\u00eane 8, 1003 Lausanne, Switzerland",
+          "neighborhood": "Gare / Centre (1003)",
+          "lat": 46.5197,
+          "lng": 6.6323,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "08:00-19:00",
+            "Tue": "08:00-19:00",
+            "Wed": "08:00-19:00",
+            "Thu": "08:00-19:00",
+            "Fri": "08:00-19:00",
+            "Sat": "09:00-19:00",
+            "Sun": "09:00-18:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Open daily per listing; January 1/2 can affect hours in Switzerland\u2014confirm if traveling right after New Year."
+        },
+        {
+          "name": "Bel-Air Coffee",
+          "address": "Place Bel-Air 1, 1003 Lausanne, Switzerland",
+          "neighborhood": "Bel-Air / Centre-ville (1003)",
+          "lat": 46.5197,
+          "lng": 6.6323,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "07:00-18:00",
+            "Tue": "07:00-18:00",
+            "Wed": "07:00-18:00",
+            "Thu": "07:00-18:00",
+            "Fri": "07:00-18:00",
+            "Sat": "08:00-18:00",
+            "Sun": "09:00-17:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Central location; verify if any winter/holiday closures are posted."
+        }
+      ]
+    },
+    "Switzerland - Bern": {
+      "center": [
+        7.4474,
+        46.948
+      ],
+      "cafes": [
+        {
+          "name": "Friend or Foe",
+          "address": "Schwanengasse 4, 3011 Bern, Switzerland",
+          "neighborhood": "Innenstadt / Bahnhof (3011)",
+          "lat": 46.948,
+          "lng": 7.4474,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "07:30-18:00",
+            "Tue": "07:30-18:00",
+            "Wed": "07:30-18:00",
+            "Thu": "07:30-18:00",
+            "Fri": "07:30-18:00",
+            "Sat": "09:00-17:00",
+            "Sun": "Closed"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Closed Sundays; expect Swiss holiday impacts early January\u2014confirm before visiting."
+        }
+      ]
+    },
+    "Switzerland - Basel": {
+      "center": [
+        7.5886,
+        47.5596
+      ],
+      "cafes": [
+        {
+          "name": "Bru Coffee Bar",
+          "address": "Klarastrasse 4, 4058 Basel, Switzerland",
+          "neighborhood": "Kleinbasel (Clara / Messe, 4058)",
+          "lat": 47.5596,
+          "lng": 7.5886,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "07:00-17:00",
+            "Tue": "07:00-17:00",
+            "Wed": "07:00-17:00",
+            "Thu": "07:00-17:00",
+            "Fri": "07:00-17:00",
+            "Sat": "09:00-17:00",
+            "Sun": "09:00-17:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Open weekends per listing; check for any Basel holiday closures in early January."
+        },
+        {
+          "name": "Daniska",
+          "address": "St. Johanns-Vorstadt 24, 4056 Basel, Switzerland",
+          "neighborhood": "St. Johann (Grossbasel, 4056)",
+          "lat": 47.5596,
+          "lng": 7.5886,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "07:00-17:00",
+            "Tue": "07:00-17:00",
+            "Wed": "07:00-17:00",
+            "Thu": "07:00-17:00",
+            "Fri": "07:00-17:00",
+            "Sat": "08:00-17:00",
+            "Sun": "08:00-17:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Open daily per listing; verify holiday hours around New Year."
+        }
+      ]
+    },
+    "Switzerland - Lucerne": {
+      "center": [
+        8.3093,
+        47.0502
+      ],
+      "cafes": [
+        {
+          "name": "Cafe Tacuba",
+          "address": "Baselstrasse 31, 6003 Luzern, Switzerland",
+          "neighborhood": "Baselstrasse / Bruch (6003)",
+          "lat": 47.0502,
+          "lng": 8.3093,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "08:00-17:00",
+            "Tue": "08:00-17:00",
+            "Wed": "08:00-17:00",
+            "Thu": "08:00-17:00",
+            "Fri": "08:00-17:00",
+            "Sat": "09:00-17:00",
+            "Sun": "Closed"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Closed Sundays; Lucerne canton observes some early-January holidays (e.g., Epiphany in some years)\u2014double-check hours if visiting around Jan 6."
+        },
+        {
+          "name": "Four Hundred",
+          "address": "Kasernenplatz 1, 6003 Luzern, Switzerland",
+          "neighborhood": "Old Town / Kaserne (6003)",
+          "lat": 47.0502,
+          "lng": 8.3093,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "08:00-17:00",
+            "Tue": "08:00-17:00",
+            "Wed": "08:00-17:00",
+            "Thu": "08:00-17:00",
+            "Fri": "08:00-17:00",
+            "Sat": "09:00-17:00",
+            "Sun": "Closed"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Closed Sundays; confirm for any early-January holiday schedule changes."
+        }
+      ]
+    },
+    "Cortina dAmpezzo": {
+      "center": [
+        12.1357,
+        46.5369
+      ],
+      "cafes": [],
+      "notes": [
+        "No clearly verified 'third-wave/specialty' caf\u00e9s in Cortina d'Ampezzo were captured in the sources available in this session.",
+        "In ski towns, specialty coffee is often found inside select hotels/restaurants rather than standalone roaster-led caf\u00e9s\u2014consider checking current local options on Google Maps using keywords like 'specialty coffee', 'V60', 'filter coffee', 'coffee roasters'."
+      ]
+    },
+    "Venice": {
+      "center": [
+        12.3155,
+        45.4408
+      ],
+      "cafes": [
+        {
+          "name": "Farini (Apostoli)",
+          "address": "Campo San Canciano 5301, Sestiere Cannaregio, 30121 Venezia VE, Italy",
+          "neighborhood": "Cannaregio",
+          "lat": 45.4408,
+          "lng": 12.3155,
+          "hasExactCoords": false,
+          "hours": {
+            "Daily": "08:30-22:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Good Cannaregio base; verify any winter off-days."
+        },
+        {
+          "name": "1000 Coffee & Bakery",
+          "address": "Rio Ter\u00e0 de la Maddalena, Cannaregio 2105, Campo della Maddalena, 30121 Venezia VE, Italy",
+          "neighborhood": "Cannaregio",
+          "lat": 45.4408,
+          "lng": 12.3155,
+          "hasExactCoords": false,
+          "hours": {
+            "Daily": "08:00-22:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": "@1000coffee_bakery",
+          "januaryNotes": "Modern bakery/caf\u00e9 concept; hours vary by listing (some show earlier opening). Check Instagram for current winter schedule."
+        },
+        {
+          "name": "Farini (San Lio)",
+          "address": "Campo San Lio 5576, Sestiere Castello, 30122 Venezia VE, Italy",
+          "neighborhood": "Castello",
+          "lat": 45.4408,
+          "lng": 12.3155,
+          "hasExactCoords": false,
+          "hours": {
+            "Daily": "10:00-00:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Open until midnight per listing; confirm January hours (some shops shorten in winter)."
+        },
+        {
+          "name": "Farini (Carlon)",
+          "address": "Calle dello Spezier 6399, Sestiere San Marco, 30124 Venezia VE, Italy",
+          "neighborhood": "San Marco",
+          "lat": 45.4408,
+          "lng": 12.3155,
+          "hasExactCoords": false,
+          "hours": {
+            "Daily": "08:30-22:30"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Late closing; verify if any mid-week winter hours adjustments are posted."
+        },
+        {
+          "name": "Farini (Aliani)",
+          "address": "Campo San Luca 4654, Sestiere San Marco, 30124 Venezia VE, Italy",
+          "neighborhood": "San Marco",
+          "lat": 45.4408,
+          "lng": 12.3155,
+          "hasExactCoords": false,
+          "hours": {
+            "Daily": "09:00-00:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Open until midnight per listing; winter hours can change\u2014confirm day-of."
+        }
+      ]
+    },
+    "Milan": {
+      "center": [
+        9.19,
+        45.4642
+      ],
+      "cafes": [
+        {
+          "name": "ORSONERO COFFEE",
+          "address": "Via Broggi 15, 20129 Milano MI, Italy",
+          "neighborhood": "Porta Venezia",
+          "lat": 45.4642,
+          "lng": 9.19,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "Closed",
+            "Tue": "08:00-17:00",
+            "Wed": "08:00-17:00",
+            "Thu": "08:00-17:00",
+            "Fri": "08:00-17:00",
+            "Sat": "09:00-17:00",
+            "Sun": "09:00-13:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Closed Mondays per listing; plan Tue\u2013Sun. Winter hours generally stable\u2014verify for any post-holiday changes."
+        },
+        {
+          "name": "Loste Cafe",
+          "address": "Via Francesco Guicciardini 3, 20129 Milano MI, Italy",
+          "neighborhood": "Porta Venezia",
+          "lat": 45.4642,
+          "lng": 9.19,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "08:00-15:00",
+            "Tue": "08:00-15:00",
+            "Wed": "08:00-15:00",
+            "Thu": "08:00-15:00",
+            "Fri": "08:00-15:00",
+            "Sat": "08:00-15:00",
+            "Sun": "08:00-15:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Daily morning-to-lunch hours; great for earlier coffee breaks."
+        },
+        {
+          "name": "Serra di quartiere",
+          "address": "Via Melzo 3, 20129 Milano MI, Italy",
+          "neighborhood": "Porta Venezia",
+          "lat": 45.4642,
+          "lng": 9.19,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "08:00-15:00",
+            "Tue": "08:00-15:00",
+            "Wed": "08:00-15:00",
+            "Thu": "08:00-15:00",
+            "Fri": "08:00-15:00",
+            "Sat": "08:30-15:00",
+            "Sun": "Closed"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Closed Sundays; morning-to-lunch profile suits breakfast + coffee."
+        },
+        {
+          "name": "NOWHERE - FUTURE COFFEE ROASTERS",
+          "address": "Via Vetere 14, 20123 Milano MI, Italy",
+          "neighborhood": "Centro Storico / Sant'Ambrogio",
+          "lat": 45.4642,
+          "lng": 9.19,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "Closed",
+            "Tue": "08:30-16:00",
+            "Wed": "08:30-16:00",
+            "Thu": "08:30-16:00",
+            "Fri": "08:30-16:00",
+            "Sat": "09:00-16:00",
+            "Sun": "09:00-16:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "in-house"
+          },
+          "instagram": null,
+          "januaryNotes": "Closed Mondays; strong third-wave roaster-led option. Check for any January roasting/training closures."
+        },
+        {
+          "name": "Bugan Coffee Lab",
+          "address": "Via Vigevano 15, 20144 Milano MI, Italy",
+          "neighborhood": "Navigli (Porta Genova)",
+          "lat": 45.4642,
+          "lng": 9.19,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "08:00-18:00",
+            "Tue": "08:00-18:00",
+            "Wed": "08:00-18:00",
+            "Thu": "08:00-18:00",
+            "Fri": "08:00-18:00",
+            "Sat": "08:00-18:00",
+            "Sun": "08:00-18:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "in-house"
+          },
+          "instagram": null,
+          "januaryNotes": "Open daily per listing; roastery + research/education focus makes it a core stop for coffee nerds."
+        },
+        {
+          "name": "Cafezal Specialty Coffee - Porta Venezia",
+          "address": "Via San Gregorio 29A, 20124 Milano MI, Italy",
+          "neighborhood": "Central Station / Porta Venezia",
+          "lat": 45.4796231,
+          "lng": 9.2040814,
+          "hasExactCoords": true,
+          "hours": {
+            "Mon": "08:00-17:00",
+            "Tue": "08:00-17:00",
+            "Wed": "08:00-17:00",
+            "Thu": "08:00-17:00",
+            "Fri": "08:00-17:00",
+            "Sat": "09:00-18:00",
+            "Sun": "09:00-18:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": "@cafezalmilano",
+          "januaryNotes": "Weekend hours available; verify for any winter/holiday modifications."
+        },
+        {
+          "name": "Mascherpa the original tiramis\u00f9 boutique + specialty coffee",
+          "address": "Via Edmondo de Amicis 7, 20123 Milano MI, Italy",
+          "neighborhood": "Sant'Ambrogio / Ticinese",
+          "lat": 45.4642,
+          "lng": 9.19,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "08:00-22:00",
+            "Tue": "08:00-22:00",
+            "Wed": "08:00-22:00",
+            "Thu": "08:00-22:00",
+            "Fri": "08:00-22:00",
+            "Sat": "08:00-22:00",
+            "Sun": "12:00-21:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Long hours most days; good later-afternoon option in winter."
+        },
+        {
+          "name": "Bgood",
+          "address": "Via Antonio Tantardini 8, 20136 Milano MI, Italy",
+          "neighborhood": "Porta Romana / Bocconi",
+          "lat": 45.4642,
+          "lng": 9.19,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "08:00-18:00",
+            "Tue": "08:00-18:00",
+            "Wed": "08:00-18:00",
+            "Thu": "08:00-18:00",
+            "Fri": "08:00-18:00",
+            "Sat": "08:30-15:00",
+            "Sun": "08:30-14:30"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": null,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Shorter Sunday hours; confirm if you\u2019re doing a Sunday Navigli walk."
+        },
+        {
+          "name": "June Collective",
+          "address": "Via Varesina 162, 20156 Milano MI, Italy",
+          "neighborhood": "Certosa / Varesina",
+          "lat": 45.4642,
+          "lng": 9.19,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "09:30-15:00",
+            "Tue": "09:30-15:00",
+            "Wed": "09:30-15:00",
+            "Thu": "09:30-15:00",
+            "Fri": "09:30-15:00",
+            "Sat": "10:00-15:00",
+            "Sun": "10:00-15:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Earlier closing time; best as a morning/early-lunch stop."
+        },
+        {
+          "name": "Loste Cafe (Varesina)",
+          "address": "Via Varesina 204, 20156 Milano MI, Italy",
+          "neighborhood": "Certosa / Varesina",
+          "lat": 45.4642,
+          "lng": 9.19,
+          "hasExactCoords": false,
+          "hours": {
+            "Mon": "08:00-15:00",
+            "Tue": "08:00-15:00",
+            "Wed": "08:00-15:00",
+            "Thu": "08:00-15:00",
+            "Fri": "08:00-15:00",
+            "Sat": "08:00-15:00",
+            "Sun": "08:00-15:00"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": null,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Daily early hours; consider pairing with a bakery-style breakfast."
+        }
+      ]
+    }
+  }
+};

@@ -1,158 +1,128 @@
-# Agent Build Instructions
+# Agent Build Instructions for Third-Wave Coffee App
 
-## Project Setup
+## Project Type
+This is a **pure static web project** - NO npm, NO build tools, NO frameworks.
+
+## How to Build
 ```bash
-# Install dependencies (example for Node.js project)
-npm install
+# There is no build step. The files are ready to serve.
+# To test locally, use Python's built-in server:
+python3 -m http.server 8000
 
-# Or for Python project
-pip install -r requirements.txt
-
-# Or for Rust project  
-cargo build
+# Or use any static file server
 ```
 
-## Running Tests
-```bash
-# Node.js
-npm test
+## How to Test
+1. Open `index.html` in a browser
+2. Test on mobile: Chrome DevTools → Toggle Device Toolbar → iPhone SE (375px)
+3. Check browser console for errors (should be zero)
+4. Verify all 48 cafés load from the data
+5. Test map markers appear
+6. Test that links to Google Maps open correctly
 
-# Python
-pytest
-
-# Rust
-cargo test
+## File Structure
+```
+/
+├── index.html          # Single HTML file
+├── css/style.css       # All styles
+├── js/
+│   ├── app.js          # Main logic
+│   ├── data.js         # Embedded café data (from JSON)
+│   └── map.js          # Mapbox integration
+├── chatgpt-research-full.json  # Source data (48 cafés)
+├── PROMPT.md           # Requirements
+└── README.md           # User documentation
 ```
 
-## Build Commands
-```bash
-# Production build
-npm run build
-# or
-cargo build --release
+## Critical Learnings from Previous Attempts
+
+### What Broke Last Time
+1. **ES Modules don't work with file://** - Used `import/export` which fails when opening HTML directly
+2. **Fetching local JSON fails** - `fetch('./data.json')` doesn't work with file://
+3. **Missing coordinates** - Many cafés have null lat/lng, app broke trying to plot them
+
+### Solutions
+1. **NO ES modules** - Use regular `<script>` tags in order, global variables
+2. **Embed data in JS** - Convert JSON to `const CAFES = [...]` in data.js
+3. **Handle null coordinates** - Group at city center, or skip from map but show in list
+
+### JavaScript Pattern to Use
+```html
+<!-- In index.html - ORDER MATTERS -->
+<script src="js/data.js"></script>  <!-- Defines window.CAFE_DATA -->
+<script src="js/map.js"></script>   <!-- Uses window.CAFE_DATA -->
+<script src="js/app.js"></script>   <!-- Main app logic -->
 ```
 
-## Development Server
-```bash
-# Start development server
-npm run dev
-# or
-cargo run
+```javascript
+// In data.js - NO import/export
+window.CAFE_DATA = {
+  paris: [...],
+  milan: [...],
+  // etc
+};
 ```
 
-## Key Learnings
-- Update this section when you learn new build optimizations
-- Document any gotchas or special setup requirements
-- Keep track of the fastest test/build cycle
+## Data Source
+The café data is in `chatgpt-research-full.json`. This was researched by ChatGPT Pro Deep Research and includes:
+- 22 cafés in Paris (by arrondissement)
+- 11 cafés in Switzerland (Zurich, Geneva, Lausanne, Bern, Basel, Lucerne)
+- 5 cafés in Venice (by sestiere)
+- 10 cafés in Milan (by neighborhood)
+- 0 cafés in Cortina (honest - no specialty coffee there)
 
-## Feature Development Quality Standards
+## Mapbox Token
+```
+pk.eyJ1IjoiYWxlamFuZHJvb3BpIiwiYSI6ImNtNWw0dnBoZzJhbHkya3B6ZWVsMnRqdXEifQ.Uh_ceEJWjudge6xy9GnXTA
+```
 
-**CRITICAL**: All new features MUST meet the following mandatory requirements before being considered complete.
+## City Center Coordinates (for cafés without coords)
+```javascript
+const CITY_CENTERS = {
+  'Paris': [2.3522, 48.8566],
+  'Milan': [9.1900, 45.4642],
+  'Venice': [12.3155, 45.4408],
+  'Zurich': [8.5417, 47.3769],
+  'Geneva': [6.1432, 46.2044],
+  'Lausanne': [6.6323, 46.5197],
+  'Bern': [7.4474, 46.9480],
+  'Basel': [7.5886, 47.5596],
+  'Lucerne': [8.3093, 47.0502],
+};
+```
 
-### Testing Requirements
+## Quality Gates Before Committing
 
-- **Minimum Coverage**: 85% code coverage ratio required for all new code
-- **Test Pass Rate**: 100% - all tests must pass, no exceptions
-- **Test Types Required**:
-  - Unit tests for all business logic and services
-  - Integration tests for API endpoints or main functionality
-  - End-to-end tests for critical user workflows
-- **Coverage Validation**: Run coverage reports before marking features complete:
-  ```bash
-  # Examples by language/framework
-  npm run test:coverage
-  pytest --cov=src tests/ --cov-report=term-missing
-  cargo tarpaulin --out Html
-  ```
-- **Test Quality**: Tests must validate behavior, not just achieve coverage metrics
-- **Test Documentation**: Complex test scenarios must include comments explaining the test strategy
+### Must Pass
+- [ ] `index.html` opens without console errors
+- [ ] All 48 cafés visible in list view
+- [ ] Map loads with Mapbox tiles
+- [ ] Mobile layout works at 375px (no horizontal scroll)
+- [ ] Tap targets are 44px minimum
+- [ ] Cortina shows "no specialty coffee" message
+- [ ] Google Maps direction links work
 
-### Git Workflow Requirements
+### Nice to Have
+- [ ] Smooth animations
+- [ ] Marker clustering
+- [ ] Offline-capable
 
-Before moving to the next feature, ALL changes must be:
+## Git Workflow
+```bash
+# After making changes:
+git add -A
+git commit -m "feat: description of what changed"
+git push origin main
+```
 
-1. **Committed with Clear Messages**:
-   ```bash
-   git add .
-   git commit -m "feat(module): descriptive message following conventional commits"
-   ```
-   - Use conventional commit format: `feat:`, `fix:`, `docs:`, `test:`, `refactor:`, etc.
-   - Include scope when applicable: `feat(api):`, `fix(ui):`, `test(auth):`
-   - Write descriptive messages that explain WHAT changed and WHY
+## Deployment
+The repo is set up for GitHub Pages. After pushing to main, the site will be live at:
+https://alejandroopi.github.io/third-wave-cafes/
 
-2. **Pushed to Remote Repository**:
-   ```bash
-   git push origin <branch-name>
-   ```
-   - Never leave completed features uncommitted
-   - Push regularly to maintain backup and enable collaboration
-   - Ensure CI/CD pipelines pass before considering feature complete
-
-3. **Branch Hygiene**:
-   - Work on feature branches, never directly on `main`
-   - Branch naming convention: `feature/<feature-name>`, `fix/<issue-name>`, `docs/<doc-update>`
-   - Create pull requests for all significant changes
-
-4. **Ralph Integration**:
-   - Update @fix_plan.md with new tasks before starting work
-   - Mark items complete in @fix_plan.md upon completion
-   - Update PROMPT.md if development patterns change
-   - Test features work within Ralph's autonomous loop
-
-### Documentation Requirements
-
-**ALL implementation documentation MUST remain synchronized with the codebase**:
-
-1. **Code Documentation**:
-   - Language-appropriate documentation (JSDoc, docstrings, etc.)
-   - Update inline comments when implementation changes
-   - Remove outdated comments immediately
-
-2. **Implementation Documentation**:
-   - Update relevant sections in this AGENT.md file
-   - Keep build and test commands current
-   - Update configuration examples when defaults change
-   - Document breaking changes prominently
-
-3. **README Updates**:
-   - Keep feature lists current
-   - Update setup instructions when dependencies change
-   - Maintain accurate command examples
-   - Update version compatibility information
-
-4. **AGENT.md Maintenance**:
-   - Add new build patterns to relevant sections
-   - Update "Key Learnings" with new insights
-   - Keep command examples accurate and tested
-   - Document new testing patterns or quality gates
-
-### Feature Completion Checklist
-
-Before marking ANY feature as complete, verify:
-
-- [ ] All tests pass with appropriate framework command
-- [ ] Code coverage meets 85% minimum threshold
-- [ ] Coverage report reviewed for meaningful test quality
-- [ ] Code formatted according to project standards
-- [ ] Type checking passes (if applicable)
-- [ ] All changes committed with conventional commit messages
-- [ ] All commits pushed to remote repository
-- [ ] @fix_plan.md task marked as complete
-- [ ] Implementation documentation updated
-- [ ] Inline code comments updated or added
-- [ ] AGENT.md updated (if new patterns introduced)
-- [ ] Breaking changes documented
-- [ ] Features tested within Ralph loop (if applicable)
-- [ ] CI/CD pipeline passes
-
-### Rationale
-
-These standards ensure:
-- **Quality**: High test coverage and pass rates prevent regressions
-- **Traceability**: Git commits and @fix_plan.md provide clear history of changes
-- **Maintainability**: Current documentation reduces onboarding time and prevents knowledge loss
-- **Collaboration**: Pushed changes enable team visibility and code review
-- **Reliability**: Consistent quality gates maintain production stability
-- **Automation**: Ralph integration ensures continuous development practices
-
-**Enforcement**: AI agents should automatically apply these standards to all feature development tasks without requiring explicit instruction for each task.
+## Common Mistakes to Avoid
+1. Don't use `import` or `export` statements
+2. Don't fetch local files - embed data in JS
+3. Don't forget to handle null coordinates
+4. Don't use external image URLs that might break
+5. Don't make tap targets smaller than 44px
+6. Don't skip mobile testing

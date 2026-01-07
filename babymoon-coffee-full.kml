@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<name>Babymoon Third-Wave Coffee</name>
+<description>Specialty coffee shops for January 2026 babymoon trip</description>
+
+<Folder>
+<name>Milan (10 cafés)</name>
+  <Placemark>
+    <name>ORSONERO COFFEE</name>
+    <description>Via Broggi 15, 20129 Milano MI, Italy
+Neighborhood: Porta Venezia
+Specialty: espresso, filter</description>
+    <Point><coordinates>9.19,45.4642,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Loste Cafe</name>
+    <description>Via Francesco Guicciardini 3, 20129 Milano MI, Italy
+Neighborhood: Porta Venezia
+Specialty: espresso, filter</description>
+    <Point><coordinates>9.19,45.4642,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Serra di quartiere</name>
+    <description>Via Melzo 3, 20129 Milano MI, Italy
+Neighborhood: Porta Venezia
+Specialty: espresso, filter</description>
+    <Point><coordinates>9.19,45.4642,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>NOWHERE - FUTURE COFFEE ROASTERS</name>
+    <description>Via Vetere 14, 20123 Milano MI, Italy
+Neighborhood: Centro Storico / Sant'Ambrogio
+Specialty: espresso, filter</description>
+    <Point><coordinates>9.19,45.4642,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Bugan Coffee Lab</name>
+    <description>Via Vigevano 15, 20144 Milano MI, Italy
+Neighborhood: Navigli (Porta Genova)
+Specialty: espresso, filter</description>
+    <Point><coordinates>9.19,45.4642,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Cafezal Specialty Coffee - Porta Venezia</name>
+    <description>Via San Gregorio 29A, 20124 Milano MI, Italy
+Neighborhood: Central Station / Porta Venezia
+Specialty: espresso, filter</description>
+    <Point><coordinates>9.2040814,45.4796231,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Mascherpa the original tiramisù boutique + specialty coffee</name>
+    <description>Via Edmondo de Amicis 7, 20123 Milano MI, Italy
+Neighborhood: Sant'Ambrogio / Ticinese
+Specialty: espresso, filter</description>
+    <Point><coordinates>9.19,45.4642,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Bgood</name>
+    <description>Via Antonio Tantardini 8, 20136 Milano MI, Italy
+Neighborhood: Porta Romana / Bocconi
+Specialty: espresso</description>
+    <Point><coordinates>9.19,45.4642,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>June Collective</name>
+    <description>Via Varesina 162, 20156 Milano MI, Italy
+Neighborhood: Certosa / Varesina
+Specialty: espresso, filter</description>
+    <Point><coordinates>9.19,45.4642,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Loste Cafe (Varesina)</name>
+    <description>Via Varesina 204, 20156 Milano MI, Italy
+Neighborhood: Certosa / Varesina
+Specialty: espresso</description>
+    <Point><coordinates>9.19,45.4642,0</coordinates></Point>
+  </Placemark>
+</Folder>
+
+<Folder>
+<name>Paris (22 cafés)</name>
+  <Placemark>
+    <name>Télescope</name>
+    <description>5 Rue Villedo, 75001 Paris, France
+Neighborhood: 1st
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Motors Coffee</name>
+    <description>7 Rue des Halles, 75001 Paris, France
+Neighborhood: 1st
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Café Nuances (Danielle Casanova)</name>
+    <description>25 Rue Danielle Casanova, 75001 Paris, France
+Neighborhood: 1st
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>L'Arbre à Café</name>
+    <description>10 Rue du Nil, 75002 Paris, France
+Neighborhood: 2nd
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Substance Café</name>
+    <description>30 Rue Dussoubs, 75002 Paris, France
+Neighborhood: 2nd
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Boot Café</name>
+    <description>19 Rue du Pont aux Choux, 75003 Paris, France
+Neighborhood: 3rd
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Tanat - Boutique</name>
+    <description>96 Rue des Archives, 75003 Paris, France
+Neighborhood: 3rd
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Terres de Café (Blancs Manteaux)</name>
+    <description>36 Rue des Blancs Manteaux, 75004 Paris, France
+Neighborhood: 4th
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Terres de Café (Bourbon-le-Château)</name>
+    <description>4 Rue de Bourbon-le-Château, 75006 Paris, France
+Neighborhood: 6th
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>U.Graine</name>
+    <description>5 Rue Littré, 75006 Paris, France
+Neighborhood: 6th
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Benchy</name>
+    <description>50 Rue du Cherche-Midi, 75006 Paris, France
+Neighborhood: 6th
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Coutume Café</name>
+    <description>47 Rue de Babylone, 75007 Paris, France
+Neighborhood: 7th
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Terres de Café (La Bourdonnais)</name>
+    <description>67 Avenue de la Bourdonnais, 75007 Paris, France
+Neighborhood: 7th
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Noir - Coffeeshop &amp; Torréfacteur</name>
+    <description>9 Rue de Luynes, 75007 Paris, France
+Neighborhood: 7th
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Café Nuances (Madeleine)</name>
+    <description>5 Rue de l'Arcade, 75008 Paris, France
+Neighborhood: 8th
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>KB CaféShop (Trudaine / Pigalle)</name>
+    <description>53 Avenue Trudaine, 75009 Paris, France
+Neighborhood: 9th
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Café Nuances (Galeries Lafayette)</name>
+    <description>35 Boulevard Haussmann, 75009 Paris, France
+Neighborhood: 9th
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Ten Belles</name>
+    <description>10 Rue de la Grange aux Belles, 75010 Paris, France
+Neighborhood: 10th
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Nilo</name>
+    <description>73 Avenue Parmentier, 75011 Paris, France
+Neighborhood: 11th
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Kott Cafe</name>
+    <description>19 Rue Ternaux, 75011 Paris, France
+Neighborhood: 11th
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Coutume x La Grande Épicerie de Paris (Passy)</name>
+    <description>78 Rue de Passy, 75016 Paris, France
+Neighborhood: 16th
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Cafe Lomi</name>
+    <description>3 ter Rue Marcadet, 75018 Paris, France
+Neighborhood: 18th
+Specialty: espresso, filter</description>
+    <Point><coordinates>2.3522,48.8566,0</coordinates></Point>
+  </Placemark>
+</Folder>
+
+<Folder>
+<name>Switzerland - Basel (2 cafés)</name>
+  <Placemark>
+    <name>Bru Coffee Bar</name>
+    <description>Klarastrasse 4, 4058 Basel, Switzerland
+Neighborhood: Kleinbasel (Clara / Messe, 4058)
+Specialty: espresso, filter</description>
+    <Point><coordinates>7.5886,47.5596,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Daniska</name>
+    <description>St. Johanns-Vorstadt 24, 4056 Basel, Switzerland
+Neighborhood: St. Johann (Grossbasel, 4056)
+Specialty: espresso, filter</description>
+    <Point><coordinates>7.5886,47.5596,0</coordinates></Point>
+  </Placemark>
+</Folder>
+
+<Folder>
+<name>Switzerland - Bern (1 cafés)</name>
+  <Placemark>
+    <name>Friend or Foe</name>
+    <description>Schwanengasse 4, 3011 Bern, Switzerland
+Neighborhood: Innenstadt / Bahnhof (3011)
+Specialty: espresso, filter</description>
+    <Point><coordinates>7.4474,46.948,0</coordinates></Point>
+  </Placemark>
+</Folder>
+
+<Folder>
+<name>Switzerland - Geneva (2 cafés)</name>
+  <Placemark>
+    <name>MAME (Geneva)</name>
+    <description>Rue des Voisins 8, 1205 Genève, Switzerland
+Neighborhood: Plainpalais / Voisins (1205)
+Specialty: espresso, filter</description>
+    <Point><coordinates>6.1432,46.2044,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Corde Coffee (31 Décembre)</name>
+    <description>Rue du 31 Décembre 32, 1207 Genève, Switzerland
+Neighborhood: Eaux-Vives (1207)
+Specialty: espresso, filter</description>
+    <Point><coordinates>6.1432,46.2044,0</coordinates></Point>
+  </Placemark>
+</Folder>
+
+<Folder>
+<name>Switzerland - Lausanne (2 cafés)</name>
+  <Placemark>
+    <name>Sleepy Bear Coffee Shop</name>
+    <description>Rue du Petit-Chêne 8, 1003 Lausanne, Switzerland
+Neighborhood: Gare / Centre (1003)
+Specialty: espresso, filter</description>
+    <Point><coordinates>6.6323,46.5197,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Bel-Air Coffee</name>
+    <description>Place Bel-Air 1, 1003 Lausanne, Switzerland
+Neighborhood: Bel-Air / Centre-ville (1003)
+Specialty: espresso, filter</description>
+    <Point><coordinates>6.6323,46.5197,0</coordinates></Point>
+  </Placemark>
+</Folder>
+
+<Folder>
+<name>Switzerland - Lucerne (2 cafés)</name>
+  <Placemark>
+    <name>Cafe Tacuba</name>
+    <description>Baselstrasse 31, 6003 Luzern, Switzerland
+Neighborhood: Baselstrasse / Bruch (6003)
+Specialty: espresso, filter</description>
+    <Point><coordinates>8.3093,47.0502,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Four Hundred</name>
+    <description>Kasernenplatz 1, 6003 Luzern, Switzerland
+Neighborhood: Old Town / Kaserne (6003)
+Specialty: espresso, filter</description>
+    <Point><coordinates>8.3093,47.0502,0</coordinates></Point>
+  </Placemark>
+</Folder>
+
+<Folder>
+<name>Switzerland - Zurich (2 cafés)</name>
+  <Placemark>
+    <name>MAME (Seefeld)</name>
+    <description>Seefeldstrasse 19, 8008 Zürich, Switzerland
+Neighborhood: Seefeld (Kreis 8)
+Specialty: espresso, filter</description>
+    <Point><coordinates>8.5417,47.3769,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Bean Bank Coffee &amp; Co</name>
+    <description>Lagerstrasse 18c, 8004 Zürich, Switzerland
+Neighborhood: Europaallee / Langstrasse (Kreis 4)
+Specialty: espresso, filter</description>
+    <Point><coordinates>8.5417,47.3769,0</coordinates></Point>
+  </Placemark>
+</Folder>
+
+<Folder>
+<name>Venice (5 cafés)</name>
+  <Placemark>
+    <name>Farini (Apostoli)</name>
+    <description>Campo San Canciano 5301, Sestiere Cannaregio, 30121 Venezia VE, Italy
+Neighborhood: Cannaregio
+Specialty: espresso, filter</description>
+    <Point><coordinates>12.3155,45.4408,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>1000 Coffee &amp; Bakery</name>
+    <description>Rio Terà de la Maddalena, Cannaregio 2105, Campo della Maddalena, 30121 Venezia VE, Italy
+Neighborhood: Cannaregio
+Specialty: espresso, filter</description>
+    <Point><coordinates>12.3155,45.4408,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Farini (San Lio)</name>
+    <description>Campo San Lio 5576, Sestiere Castello, 30122 Venezia VE, Italy
+Neighborhood: Castello
+Specialty: espresso, filter</description>
+    <Point><coordinates>12.3155,45.4408,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Farini (Carlon)</name>
+    <description>Calle dello Spezier 6399, Sestiere San Marco, 30124 Venezia VE, Italy
+Neighborhood: San Marco
+Specialty: espresso, filter</description>
+    <Point><coordinates>12.3155,45.4408,0</coordinates></Point>
+  </Placemark>
+  <Placemark>
+    <name>Farini (Aliani)</name>
+    <description>Campo San Luca 4654, Sestiere San Marco, 30124 Venezia VE, Italy
+Neighborhood: San Marco
+Specialty: espresso, filter</description>
+    <Point><coordinates>12.3155,45.4408,0</coordinates></Point>
+  </Placemark>
+</Folder>
+</Document>
+</kml>
