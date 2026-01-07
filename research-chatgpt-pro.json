@@ -1,0 +1,47 @@
+{
+  "generated_at": "2026-01-07",
+  "trip_window": {
+    "start": "2026-01-06",
+    "end": "2026-01-16",
+    "cities": [
+      { "city": "Paris", "country": "FR", "dates": { "start": "2026-01-06", "end": "2026-01-10" } },
+      { "city": "Cortina d'Ampezzo", "country": "IT", "dates": { "start": "2026-01-10", "end": "2026-01-13" } },
+      { "city": "Venice", "country": "IT", "dates": { "start": "2026-01-13", "end": "2026-01-14" } },
+      { "city": "Milan", "country": "IT", "dates": { "start": "2026-01-14", "end": "2026-01-16" } }
+    ]
+  },
+  "results": [
+    {
+      "city": "Paris",
+      "cafes": [
+        { "name": "KB Pigalle", "address": "53 Avenue Trudaine, 75009 Paris", "instagram": "@kbcoffeeroastersparis", "hours": "07:45-18:30 (weekdays)" },
+        { "name": "Ten Belles", "address": "10 Rue de la Grange aux Belles, 75010 Paris", "hours": "08:30-17:30" },
+        { "name": "Kott Cafe", "address": "19 Rue Ternaux, 75011 Paris", "hours": "08:30-16:30 (closed weekends)" },
+        { "name": "Belleville Brûlerie", "address": "14b Rue Lally-Tollendal, 75019 Paris", "hours": "11:00-19:30 (closed Mon/Sun)" },
+        { "name": "Cafe Pigalle", "address": "7 Rue Frochot, 75009 Paris", "hours": "08:30-16:00" }
+      ]
+    },
+    {
+      "city": "Cortina d'Ampezzo",
+      "cafes": [],
+      "note": "NO third-wave specialty coffee verified. Traditional Italian bars only."
+    },
+    {
+      "city": "Venice",
+      "cafes": [
+        { "name": "ABC Zattere", "address": "Dorsoduro 1401, 30123 Venezia", "instagram": "@abczattere", "warning": "May be closed mid-Jan, verify!" },
+        { "name": "Torrefazione Cannaregio", "address": "Fondamenta dei Ormesini 2804, 30121 Venezia", "coords": [12.327885, 45.4457284] }
+      ]
+    },
+    {
+      "city": "Milan",
+      "cafes": [
+        { "name": "Orsonero Coffee", "address": "Via Giuseppe Broggi 15, 20129 Milano", "instagram": "@orsonerocoffee", "coords": [9.2111222, 45.4778233] },
+        { "name": "NOWHERE - Future Coffee Roasters", "address": "Via Vetere 14, 20123 Milano", "instagram": "@nowherecafe.milano" },
+        { "name": "Cafezal (Brera)", "address": "Via Solferino 27, 20121 Milano", "hours": "07:30-18:00" },
+        { "name": "Ditta Artigianale", "address": "Corso Magenta 31, 20123 Milano", "instagram": "@dittaartigianale" },
+        { "name": "Loste café", "address": "Via Guicciardini 3, Milano", "instagram": "@lostecafemilano" }
+      ]
+    }
+  ]
+}
