@@ -8,66 +8,69 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <header class="site-header">
-      <div class="header-inner">
-        <p class="eyebrow">Babymoon Coffee Map</p>
-        <h1>Third Wave Stops Across Europe</h1>
-        <p class="subhead">
-          Mobile-first map and list for Paris, Cortina, Venice, and Milan. Cafe data
-          requires verification before use.
-        </p>
-      </div>
-    </header>
+    <div class="app">
+      <header class="app-header">
+        <div class="header-inner">
+          <p class="eyebrow">Babymoon Coffee Map</p>
+          <h1>Third Wave Stops Across Europe</h1>
+          <p class="subhead">
+            Mobile-first guide to third-wave cafes in Paris, Venice, Milan, and Switzerland.
+            Cortina d'Ampezzo is included with an honest note.
+          </p>
+        </div>
+      </header>
 
-    <main class="content">
-      <section class="controls">
-        <div class="controls-inner">
-          <h2 class="section-title">Filter by city</h2>
-          <div class="filter-row" role="group" aria-label="City filters">
-            <button class="filter-button is-active" data-city="all" type="button">All</button>
-            <button class="filter-button" data-city="Paris" type="button">Paris</button>
-            <button class="filter-button" data-city="Cortina d'Ampezzo" type="button">Cortina</button>
-            <button class="filter-button" data-city="Venice" type="button">Venice</button>
-            <button class="filter-button" data-city="Milan" type="button">Milan</button>
+      <main class="app-main">
+        <section class="view is-active" data-view="home" aria-label="City selector">
+          <div class="view-header">
+            <h2>Choose a city</h2>
+            <p class="note">Tap a city to jump into the map. Swipe to browse.</p>
           </div>
-          <p class="note">
-            Cortina has no confirmed third-wave coffee. Enjoy traditional espresso at local bars.
-          </p>
-        </div>
-      </section>
+          <div class="city-carousel" id="city-cards" aria-live="polite"></div>
+          <div class="trip-strip" id="trip-strip"></div>
+        </section>
 
-      <section class="map-section">
-        <div id="map" class="map" aria-label="Map of coffee cities"></div>
-        <div class="map-legend">
-          <span class="legend-dot"></span>
-          <span>City pins (cafes require verification before plotting)</span>
-        </div>
-      </section>
+        <section class="view" data-view="map" aria-label="Map view">
+          <div class="map-shell">
+            <div id="map" class="map-canvas" aria-label="Coffee map"></div>
+            <div class="map-toolbar">
+              <div class="chip-row" id="map-city-chips"></div>
+              <button class="ghost-button" id="map-list-toggle" type="button">List View</button>
+            </div>
+            <div class="map-sheet" id="map-sheet">
+              <div class="sheet-handle"></div>
+              <div class="sheet-content" id="map-sheet-content"></div>
+            </div>
+          </div>
+        </section>
 
-      <section class="list-section">
-        <div class="list-header">
-          <h2 class="section-title">Cafe list</h2>
-          <p class="note" id="verification-note">
-            Verified third-wave specialty coffee shops for your babymoon trip.
-          </p>
-        </div>
-        <div id="cafe-list" class="cafe-list" aria-live="polite"></div>
-      </section>
+        <section class="view" data-view="list" aria-label="List view">
+          <div class="list-toolbar">
+            <div class="chip-row" id="list-city-chips"></div>
+            <div class="pull-hint">
+              <span class="pull-handle"></span>
+              Pull to refresh
+            </div>
+          </div>
+          <div class="list-container" id="list-container" aria-live="polite"></div>
+        </section>
 
-      <section class="city-note" id="cortina-note">
-        <h2 class="section-title">Cortina d'Ampezzo</h2>
-        <p>
-          No specialty coffee verified. Enjoy classic Italian espresso instead. Suggested
-          traditional bars: Embassy, Lovat.
-        </p>
-      </section>
-    </main>
+        <section class="view" data-view="detail" aria-label="Cafe detail">
+          <button class="back-button" id="detail-back" type="button">Back</button>
+          <div class="detail-content" id="detail-content"></div>
+        </section>
+      </main>
 
-    <footer class="site-footer">
-      <p>Map data &copy; Mapbox. Cafe verification required before use.</p>
-    </footer>
+      <nav class="bottom-nav" aria-label="Primary">
+        <a class="nav-button" href="#/home" data-nav="home">Home</a>
+        <a class="nav-button" href="#/map" data-nav="map">Map</a>
+        <a class="nav-button" href="#/list" data-nav="list">List</a>
+      </nav>
+    </div>
 
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/map.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

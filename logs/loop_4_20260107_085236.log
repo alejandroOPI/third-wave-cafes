@@ -1,0 +1,885 @@
+OpenAI Codex v0.77.0 (research preview)
+--------
+workdir: /Users/clawdius/clawd/third-wave-cafes
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: none
+reasoning summaries: auto
+session id: 019b98f2-06f0-78e1-a662-b6502b63b6b5
+--------
+user
+# Third Wave Coffee Map - Babymoon Trip
+
+## Project Goal
+Build a mobile-first web app showing specialty/third-wave coffee shops for a babymoon trip through Europe. The data has already been researched - your job is to build a beautiful, functional app.
+
+## Trip Itinerary
+- Paris: Jan 6-10, 2026 (22 cafés)
+- Switzerland: Jan 23-30, 2026 (11 cafés across 6 cities)
+- Venice: Jan 13-14, 2026 (5 cafés)
+- Milan: Jan 14-16, 2026 (10 cafés)
+- Cortina d'Ampezzo: Jan 10-13, 2026 (NO specialty coffee - be honest about this)
+
+## Data Source
+The verified café data is in `chatgpt-research-full.json` (48 cafés total). DO NOT invent new cafés. Only use data from this file.
+
+## Technical Stack
+- Pure HTML/CSS/JS (NO frameworks, NO build tools, NO npm)
+- Mobile-first responsive design
+- Mapbox GL JS for interactive maps
+- Single page app with client-side routing
+- Must work when opened directly as file:// (for testing)
+
+## Design Requirements
+
+### Visual Style
+- Warm, editorial aesthetic (think specialty coffee shop vibes)
+- Color palette: cream (#FDF6E3), warm brown (#8B4513), charcoal (#2D2D2D), accent gold (#D4A574)
+- Typography: System fonts, generous line-height (1.6+)
+- No stock photos - use solid color cards with good typography
+- Subtle shadows, rounded corners (8px)
+
+### Mobile UX (CRITICAL)
+- 44px minimum tap targets
+- Bottom navigation bar (thumb-friendly)
+- Card-based café list with swipe hints
+- Pull-to-refresh gesture feel
+- Smooth 60fps animations
+- Test at 375px width (iPhone SE)
+
+### Map Requirements
+- Mapbox GL JS with custom markers
+- Cluster markers when zoomed out
+- Popup on tap showing café name + "Get Directions" link
+- City-level zoom presets
+- Current location button (if permitted)
+
+## Features
+
+### 1. City Selector (Landing)
+- Large tappable cards for each city
+- Show café count per city
+- Beautiful city imagery or color gradient backgrounds
+
+### 2. Map View
+- Full-screen map with bottom sheet
+- Markers colored by city
+- Tap marker → show café card
+- "List View" toggle
+
+### 3. List View
+- Scrollable cards organized by neighborhood
+- Each card shows: Name, Neighborhood, Hours summary, Specialty type
+- Tap card → expand with full details + directions link
+
+### 4. Café Detail
+- Full address
+- Opening hours by day
+- Specialty type (espresso/filter/roastery)
+- Instagram link if available
+- January closure notes (important for trip planning!)
+- "Open in Google Maps" button
+
+### 5. Cortina Special Case
+- Honest message: "Cortina d'Ampezzo doesn't have third-wave specialty coffee shops"
+- Suggest enjoying traditional Italian espresso bars instead
+- List 2-3 recommended traditional bars
+
+## File Structure
+```
+/
+├── index.html          (single HTML file with all structure)
+├── css/
+│   └── style.css       (all styles, mobile-first)
+├── js/
+│   ├── app.js          (main app logic, routing, UI)
+│   ├── data.js         (café data exported from JSON)
+│   └── map.js          (Mapbox integration)
+├── chatgpt-research-full.json  (source data - DO NOT MODIFY)
+└── README.md
+```
+
+## Mapbox Token
+```
+pk.eyJ1IjoiYWxlamFuZHJvb3BpIiwiYSI6ImNtNWw0dnBoZzJhbHkya3B6ZWVsMnRqdXEifQ.Uh_ceEJWjudge6xy9GnXTA
+```
+
+## Coordinates Note
+Many cafés in the JSON have null coordinates. For these:
+1. Use the neighborhood name to place them approximately
+2. Or geocode the address using Mapbox Geocoding API
+3. Group null-coordinate cafés at city center with a note
+
+## Quality Checklist
+- [ ] Loads without errors in browser console
+- [ ] All 48 cafés from JSON are displayed
+- [ ] Map shows markers (even if clustered at city centers)
+- [ ] Mobile layout works at 375px width
+- [ ] Tap targets are 44px minimum
+- [ ] No horizontal scroll on mobile
+- [ ] Cortina shows honest "no specialty coffee" message
+- [ ] Links to Google Maps work
+- [ ] Colors match the warm coffee palette
+- [ ] Smooth scrolling and transitions
+
+## Anti-Patterns to Avoid
+- DO NOT use ES modules (import/export) - they don't work with file://
+- DO NOT fetch local JSON - embed the data in data.js
+- DO NOT use placeholder images from external URLs
+- DO NOT invent café data not in the JSON
+- DO NOT use complex build tools
+mcp startup: no servers
+
+thinking
+**Searching for AGENTS files**
+exec
+/bin/zsh -lc ls in /Users/clawdius/clawd/third-wave-cafes succeeded in 21ms:
+@AGENT.md
+@fix_plan.md
+PROMPT.md
+README.md
+babymoon-coffee-full.csv
+babymoon-coffee-full.kml
+babymoon-coffee.csv
+babymoon-coffee.kml
+chatgpt-research-full.json
+coffee-guide.html
+coffee-guide.md
+coffee-guide.pdf
+css
+index.html
+js
+logs
+research-chatgpt-pro.json
+research-prompt-v2.txt
+research-v2.log
+run-research-v2.sh
+
+thinking
+**Opening @AGENT.md for instructions**
+exec
+/bin/zsh -lc 'cat @AGENT.md' in /Users/clawdius/clawd/third-wave-cafes succeeded in 28ms:
+# Agent Build Instructions for Third-Wave Coffee App
+
+## Project Type
+This is a **pure static web project** - NO npm, NO build tools, NO frameworks.
+
+## How to Build
+```bash
+# There is no build step. The files are ready to serve.
+# To test locally, use Python's built-in server:
+python3 -m http.server 8000
+
+# Or use any static file server
+```
+
+## How to Test
+1. Open `index.html` in a browser
+2. Test on mobile: Chrome DevTools → Toggle Device Toolbar → iPhone SE (375px)
+3. Check browser console for errors (should be zero)
+4. Verify all 48 cafés load from the data
+5. Test map markers appear
+
+thinking
+**Inspecting existing styles and scripts**
+exec
+/bin/zsh -lc 'ls css' in /Users/clawdius/clawd/third-wave-cafes succeeded in 26ms:
+style.css
+exec
+/bin/zsh -lc 'ls js' in /Users/clawdius/clawd/third-wave-cafes succeeded in 27ms:
+app.js
+data.js
+map.js
+
+thinking
+**Opening files for review**
+exec
+/bin/zsh -lc "sed -n '1,200p' index.html" in /Users/clawdius/clawd/third-wave-cafes succeeded in 22ms:
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Third Wave Coffee Map - Babymoon Trip</title>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <div class="header-inner">
+          <p class="eyebrow">Babymoon Coffee Map</p>
+          <h1>Third Wave Stops Across Europe</h1>
+          <p class="subhead">
+            Mobile-first guide to third-wave cafes in Paris, Venice, Milan, and Switzerland.
+            Cortina d'Ampezzo is included with an honest note.
+          </p>
+        </div>
+exec
+/bin/zsh -lc "sed -n '1,200p' css/style.css" in /Users/clawdius/clawd/third-wave-cafes succeeded in 22ms:
+:root {
+  color-scheme: light;
+  --cream: #fdf6e3;
+  --brown: #8b4513;
+  --charcoal: #2d2d2d;
+  --gold: #d4a574;
+  --card: #fff9ee;
+  --muted: #6b5a4e;
+  --shadow: 0 16px 30px rgba(45, 45, 45, 0.12);
+  --radius: 8px;
+  --tap: 44px;
+  --max-width: 1100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+exec
+/bin/zsh -lc "sed -n '1,200p' js/app.js" in /Users/clawdius/clawd/third-wave-cafes succeeded in 21ms:
+(function () {
+  const data = window.CAFE_DATA;
+  if (!data || !data.cities) return;
+
+  const CITY_ORDER = [
+    "Paris",
+    "Cortina d'Ampezzo",
+    "Venice",
+    "Milan",
+    "Zurich",
+    "Geneva",
+    "Lausanne",
+    "Bern",
+    "Basel",
+    "Lucerne",
+  ];
+
+  const cityEntries = Object.keys(data.cities)
+    .map((key) => {
+      let name = key;
+exec
+/bin/zsh -lc "sed -n '1,200p' js/data.js" in /Users/clawdius/clawd/third-wave-cafes succeeded in 26ms:
+// Auto-generated from chatgpt-research-full.json
+// DO NOT EDIT - regenerate from source
+
+window.CAFE_DATA = {
+  "meta": {
+    "trip_context": "Babymoon trip - third-wave/specialty coffee focus",
+    "dates": {
+      "Paris": "2026-01-06 to 2026-01-10",
+      "Cortina_dAmpezzo": "2026-01-10 to 2026-01-13",
+      "Venice": "2026-01-13 to 2026-01-14",
+      "Milan": "2026-01-14 to 2026-01-16",
+      "Switzerland": "Dates not specified"
+    },
+    "notes": [
+      "Opening hours can change seasonally and around holidays. Use Instagram/Google Maps for day-of confirmation.",
+      "Coordinates were only available for a small subset of venues from the captured sources in this session; most entries include null coordinates."
+    ],
+    "coordinates_status": "partial"
+  },
+  "cities": {
+exec
+/bin/zsh -lc "sed -n '1,200p' js/map.js" in /Users/clawdius/clawd/third-wave-cafes succeeded in 27ms:
+(function () {
+  const ACCESS_TOKEN =
+    "pk.eyJ1IjoiYWxlamFuZHJvb3BpIiwiYSI6ImNtNWw0dnBoZzJhbHkya3B6ZWVsMnRqdXEifQ.Uh_ceEJWjudge6xy9GnXTA";
+
+  const DEFAULT_VIEW = {
+    center: [7.5, 46.5],
+    zoom: 4.3,
+  };
+
+  const CITY_COLORS = {
+    Paris: "#8B4513",
+    "Cortina d'Ampezzo": "#B6845F",
+    Venice: "#C98A4B",
+    Milan: "#A85E2B",
+    Zurich: "#B0723B",
+    Geneva: "#B87A3E",
+    Lausanne: "#B06B36",
+    Bern: "#9F5C32",
+    Basel: "#B47A45",
+    Lucerne: "#A96A3C",
+exec
+/bin/zsh -lc "sed -n '200,400p' js/app.js" in /Users/clawdius/clawd/third-wave-cafes succeeded in 26ms:
+          item.dates +
+          "</span><br><span>" +
+          countText +
+          "</span>" +
+          (item.subtitle ? "<br><span>" + item.subtitle + "</span>" : "") +
+          "</div>"
+        );
+      })
+      .join("");
+  }
+
+  function cityClass(name) {
+    if (name === "Cortina d'Ampezzo") return "cortina";
+    return name.toLowerCase().split(" ")[0];
+  }
+
+  function renderCityCards() {
+    const container = document.getElementById("city-cards");
+    if (!container) return;
+    container.innerHTML = cityEntries
+exec
+/bin/zsh -lc "sed -n '200,400p' js/map.js" in /Users/clawdius/clawd/third-wave-cafes succeeded in 29ms:
+      return;
+    }
+    const center = cityCenters[city];
+    if (center) {
+      map.easeTo({ center: center, zoom: 12 });
+    }
+  }
+
+  function resize() {
+    if (map) map.resize();
+  }
+
+  window.MapView = {
+    ensureInit,
+    updateData,
+    fitToCity,
+    resize,
+  };
+})();
+exec
+/bin/zsh -lc "sed -n '400,800p' js/app.js" in /Users/clawdius/clawd/third-wave-cafes succeeded in 29ms:
+                  instagram +
+                  "\" target=\"_blank\">Instagram</a>"
+                : "") +
+              "<button class=\"secondary-button\" type=\"button\" data-action=\"open-detail\" data-id=\"" +
+              cafe.id +
+              "\">Full details</button>" +
+              "</div>" +
+              "</article>"
+            );
+          })
+          .join("");
+
+        return (
+          "<section class=\"neighborhood-group\">" +
+          "<h4 class=\"neighborhood-title\">" +
+          neighborhood +
+          "</h4>" +
+          cards +
+          "</section>"
+        );
+
+thinking
+**Considering continuing CSS edits**
+exec
+/bin/zsh -lc "sed -n '200,400p' css/style.css" in /Users/clawdius/clawd/third-wave-cafes succeeded in 26ms:
+.city-card.zurich,
+.city-card.geneva,
+.city-card.lausanne,
+.city-card.bern,
+.city-card.basel,
+.city-card.lucerne {
+  background: linear-gradient(135deg, #f9e6c8, #f0cfa1);
+}
+
+.trip-strip {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.trip-pill {
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+exec
+/bin/zsh -lc "sed -n '400,800p' css/style.css" in /Users/clawdius/clawd/third-wave-cafes succeeded in 28ms:
+
+.cafe-card:active {
+  transform: translateY(1px);
+}
+
+.cafe-card .card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.cafe-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.cafe-badge {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+
+thinking
+**Reviewing feature completeness and data constraints**
+
+I'm checking if all features are present and meet the requirements, especially noting the conflict about listing 2-3 traditional bars for Cortina without inventing data. I’ll investigate the JSON data for any notes on Cortina that might clarify if those bars can be listed accurately.
+exec
+/bin/zsh -lc 'rg -n "Cortina|cortina" chatgpt-research-full.json' in /Users/clawdius/clawd/third-wave-cafes succeeded in 35ms:
+6:      "Cortina_dAmpezzo": "2026-01-10 to 2026-01-13",
+947:    "Cortina_dAmpezzo": {
+950:        "No clearly verified 'third-wave/specialty' cafés in Cortina d'Ampezzo were captured in the sources available in this session.",
+exec
+/bin/zsh -lc "sed -n '930,980p' chatgpt-research-full.json" in /Users/clawdius/clawd/third-wave-cafes succeeded in 24ms:
+              "Sat": "09:00-17:00",
+              "Sun": "Closed"
+            },
+            "specialty": {
+              "espresso": true,
+              "filter": true,
+              "roastery": "unknown"
+            },
+            "instagram_handle": null,
+            "january_closure_notes": "Closed Sundays; confirm for any early-January holiday schedule changes.",
+            "source_hints": [
+              "European Coffee Trip profile (captured in session)"
+            ]
+          }
+        ]
+      }
+    },
+    "Cortina_dAmpezzo": {
+      "Centro": [],
+      "notes": [
+
+thinking
+**Reviewing data sources for bar recommendations**
+exec
+/bin/zsh -lc 'rg -n "Cortina" js/data.js' in /Users/clawdius/clawd/third-wave-cafes succeeded in 28ms:
+9:      "Cortina_dAmpezzo": "2026-01-10 to 2026-01-13",
+803:    "Cortina dAmpezzo": {
+810:        "No clearly verified 'third-wave/specialty' caf\u00e9s in Cortina d'Ampezzo were captured in the sources available in this session.",
+exec
+/bin/zsh -lc "sed -n '790,840p' js/data.js" in /Users/clawdius/clawd/third-wave-cafes succeeded in 27ms:
+            "Sat": "09:00-17:00",
+            "Sun": "Closed"
+          },
+          "specialty": {
+            "espresso": true,
+            "filter": true,
+            "roastery": "unknown"
+          },
+          "instagram": null,
+          "januaryNotes": "Closed Sundays; confirm for any early-January holiday schedule changes."
+        }
+      ]
+    },
+    "Cortina dAmpezzo": {
+      "center": [
+        12.1357,
+        46.5369
+      ],
+      "cafes": [],
+      "notes": [
+
+thinking
+**Reviewing Cortina bar listing and UI details**
+
+There is a lot here! I'm looking through how to meet the request for 2-3 recommended traditional bars in Cortina without inventing specific names—I'll suggest general bar categories instead and mention they're not verified names to be safe. I'm also reviewing UI elements like swipe hints, map clustering, zoom presets, and mobile-friendly styles to ensure the app feels polished and follows requirements. I'll check data completeness too, especially for Cortina and Switzerland city handling. This is shaping up into a thorough review and polish pass!
+exec
+/bin/zsh -lc 'rg -n "Switzerland" js/data.js' in /Users/clawdius/clawd/third-wave-cafes succeeded in 34ms:
+12:      "Switzerland": "Dates not specified"
+491:    "Switzerland - Zurich": {
+499:          "address": "Seefeldstrasse 19, 8008 Z\u00fcrich, Switzerland",
+523:          "address": "Lagerstrasse 18c, 8004 Z\u00fcrich, Switzerland",
+547:    "Switzerland - Geneva": {
+555:          "address": "Rue des Voisins 8, 1205 Gen\u00e8ve, Switzerland",
+579:          "address": "Rue du 31 D\u00e9cembre 32, 1207 Gen\u00e8ve, Switzerland",
+603:    "Switzerland - Lausanne": {
+611:          "address": "Rue du Petit-Ch\u00eane 8, 1003 Lausanne, Switzerland",
+631:          "januaryNotes": "Open daily per listing; January 1/2 can affect hours in Switzerland\u2014confirm if traveling right after New Year."
+635:          "address": "Place Bel-Air 1, 1003 Lausanne, Switzerland",
+659:    "Switzerland - Bern": {
+667:          "address": "Schwanengasse 4, 3011 Bern, Switzerland",
+691:    "Switzerland - Basel": {
+699:          "address": "Klarastrasse 4, 4058 Basel, Switzerland",
+723:          "address": "St. Johanns-Vorstadt 24, 4056 Basel, Switzerland",
+747:    "Switzerland - Lucerne": {
+755:          "address": "Baselstrasse 31, 6003 Luzern, Switzerland",
+779:          "address": "Kasernenplatz 1, 6003 Luzern, Switzerland",
+
+thinking
+**Planning map and list view updates**
+file update
+M /Users/clawdius/clawd/third-wave-cafes/js/app.js
+@@ -116,2 +116,15 @@
+ 
++  function cortinaSuggestionsHtml() {
++    const suggestions = [
++      "Hotel lounge bars in the town center",
++      "Neighborhood pasticcerie for espresso + pastries",
++      "Apres-ski bars near Corso Italia",
++    ];
++    return (
++      "<ul class=\"cortina-list\">" +
++      suggestions.map((item) => "<li>" + item + "</li>").join("") +
++      "</ul>"
++    );
++  }
++
+   cityEntries.forEach((city) => {
+@@ -279,3 +292,5 @@
+         "<p class=\"sheet-meta\">Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+-        "<p class=\"sheet-meta\">Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>";
++        "<p class=\"sheet-meta\">Try traditional espresso bars at hotel lounges or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
++        "<p class=\"sheet-meta\">Traditional picks (no verified names in the research data):</p>" +
++        cortinaSuggestionsHtml();
+       return;
+@@ -329,3 +344,5 @@
+         "<p>Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+-        "<p>Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
++        "<p>Try traditional espresso bars at hotel lounges or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
++        "<p>Traditional picks (no verified names in the research data):</p>" +
++        cortinaSuggestionsHtml() +
+         "</div>";
+apply_patch(auto_approved=true) exited 0 in 28ms:
+Success. Updated the following files:
+M js/app.js
+file update:
+diff --git a/js/app.js b/js/app.js
+index 8112cb10267576393b731d127600827b5d27f080..37fe2f6a15d0ce2328fe8697e353860336ad34fe
+--- a/js/app.js
++++ b/js/app.js
+@@ -114,6 +114,19 @@
+     return "https://instagram.com/" + trimmed.replace("@", "");
+   }
+ 
++  function cortinaSuggestionsHtml() {
++    const suggestions = [
++      "Hotel lounge bars in the town center",
++      "Neighborhood pasticcerie for espresso + pastries",
++      "Apres-ski bars near Corso Italia",
++    ];
++    return (
++      "<ul class=\"cortina-list\">" +
++      suggestions.map((item) => "<li>" + item + "</li>").join("") +
++      "</ul>"
++    );
++  }
++
+   cityEntries.forEach((city) => {
+     city.cafes.forEach((cafe) => {
+       const id = buildCafeId(city.name, cafe);
+@@ -277,7 +290,9 @@
+       container.innerHTML =
+         "<h3 class=\"sheet-title\">Cortina d'Ampezzo</h3>" +
+         "<p class=\"sheet-meta\">Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+-        "<p class=\"sheet-meta\">Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>";
++        "<p class=\"sheet-meta\">Try traditional espresso bars at hotel lounges or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
++        "<p class=\"sheet-meta\">Traditional picks (no verified names in the research data):</p>" +
++        cortinaSuggestionsHtml();
+       return;
+     }
+ 
+@@ -327,7 +342,9 @@
+         "<div class=\"cortina-card\">" +
+         "<h3>No Third-Wave Coffee</h3>" +
+         "<p>Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+-        "<p>Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
++        "<p>Try traditional espresso bars at hotel lounges or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
++        "<p>Traditional picks (no verified names in the research data):</p>" +
++        cortinaSuggestionsHtml() +
+         "</div>";
+       return;
+     }
+
+file update:
+diff --git a/js/app.js b/js/app.js
+index 8112cb10267576393b731d127600827b5d27f080..37fe2f6a15d0ce2328fe8697e353860336ad34fe
+--- a/js/app.js
++++ b/js/app.js
+@@ -114,6 +114,19 @@
+     return "https://instagram.com/" + trimmed.replace("@", "");
+   }
+ 
++  function cortinaSuggestionsHtml() {
++    const suggestions = [
++      "Hotel lounge bars in the town center",
++      "Neighborhood pasticcerie for espresso + pastries",
++      "Apres-ski bars near Corso Italia",
++    ];
++    return (
++      "<ul class=\"cortina-list\">" +
++      suggestions.map((item) => "<li>" + item + "</li>").join("") +
++      "</ul>"
++    );
++  }
++
+   cityEntries.forEach((city) => {
+     city.cafes.forEach((cafe) => {
+       const id = buildCafeId(city.name, cafe);
+@@ -277,7 +290,9 @@
+       container.innerHTML =
+         "<h3 class=\"sheet-title\">Cortina d'Ampezzo</h3>" +
+         "<p class=\"sheet-meta\">Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+-        "<p class=\"sheet-meta\">Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>";
++        "<p class=\"sheet-meta\">Try traditional espresso bars at hotel lounges or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
++        "<p class=\"sheet-meta\">Traditional picks (no verified names in the research data):</p>" +
++        cortinaSuggestionsHtml();
+       return;
+     }
+ 
+@@ -327,7 +342,9 @@
+         "<div class=\"cortina-card\">" +
+         "<h3>No Third-Wave Coffee</h3>" +
+         "<p>Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+-        "<p>Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
++        "<p>Try traditional espresso bars at hotel lounges or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
++        "<p>Traditional picks (no verified names in the research data):</p>" +
++        cortinaSuggestionsHtml() +
+         "</div>";
+       return;
+     }
+
+
+thinking
+**Adding CSS for cortina-list**
+file update
+M /Users/clawdius/clawd/third-wave-cafes/css/style.css
+@@ -488,2 +488,10 @@
+ 
++.cortina-list {
++  margin: 0;
++  padding-left: 1.1rem;
++  color: #5a4a40;
++  display: grid;
++  gap: 0.35rem;
++}
++
+ .back-button {
+apply_patch(auto_approved=true) exited 0 in 36ms:
+Success. Updated the following files:
+M css/style.css
+file update:
+diff --git a/css/style.css b/css/style.css
+index ca5cbf6ea79a4bac3ec36d05f8b0f04c0dd8c8cb..829414e5d4d51bf5ce60087f28d171723c3596c3
+--- a/css/style.css
++++ b/css/style.css
+@@ -486,6 +486,14 @@
+   box-shadow: var(--shadow);
+ }
+ 
++.cortina-list {
++  margin: 0;
++  padding-left: 1.1rem;
++  color: #5a4a40;
++  display: grid;
++  gap: 0.35rem;
++}
++
+ .back-button {
+   min-height: var(--tap);
+   padding: 0 1rem;
+diff --git a/js/app.js b/js/app.js
+index 8112cb10267576393b731d127600827b5d27f080..37fe2f6a15d0ce2328fe8697e353860336ad34fe
+--- a/js/app.js
++++ b/js/app.js
+@@ -114,6 +114,19 @@
+     return "https://instagram.com/" + trimmed.replace("@", "");
+   }
+ 
++  function cortinaSuggestionsHtml() {
++    const suggestions = [
++      "Hotel lounge bars in the town center",
++      "Neighborhood pasticcerie for espresso + pastries",
++      "Apres-ski bars near Corso Italia",
++    ];
++    return (
++      "<ul class=\"cortina-list\">" +
++      suggestions.map((item) => "<li>" + item + "</li>").join("") +
++      "</ul>"
++    );
++  }
++
+   cityEntries.forEach((city) => {
+     city.cafes.forEach((cafe) => {
+       const id = buildCafeId(city.name, cafe);
+@@ -277,7 +290,9 @@
+       container.innerHTML =
+         "<h3 class=\"sheet-title\">Cortina d'Ampezzo</h3>" +
+         "<p class=\"sheet-meta\">Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+-        "<p class=\"sheet-meta\">Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>";
++        "<p class=\"sheet-meta\">Try traditional espresso bars at hotel lounges or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
++        "<p class=\"sheet-meta\">Traditional picks (no verified names in the research data):</p>" +
++        cortinaSuggestionsHtml();
+       return;
+     }
+ 
+@@ -327,7 +342,9 @@
+         "<div class=\"cortina-card\">" +
+         "<h3>No Third-Wave Coffee</h3>" +
+         "<p>Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+-        "<p>Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
++        "<p>Try traditional espresso bars at hotel lounges or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
++        "<p>Traditional picks (no verified names in the research data):</p>" +
++        cortinaSuggestionsHtml() +
+         "</div>";
+       return;
+     }
+
+file update:
+diff --git a/css/style.css b/css/style.css
+index ca5cbf6ea79a4bac3ec36d05f8b0f04c0dd8c8cb..829414e5d4d51bf5ce60087f28d171723c3596c3
+--- a/css/style.css
++++ b/css/style.css
+@@ -486,6 +486,14 @@
+   box-shadow: var(--shadow);
+ }
+ 
++.cortina-list {
++  margin: 0;
++  padding-left: 1.1rem;
++  color: #5a4a40;
++  display: grid;
++  gap: 0.35rem;
++}
++
+ .back-button {
+   min-height: var(--tap);
+   padding: 0 1rem;
+diff --git a/js/app.js b/js/app.js
+index 8112cb10267576393b731d127600827b5d27f080..37fe2f6a15d0ce2328fe8697e353860336ad34fe
+--- a/js/app.js
++++ b/js/app.js
+@@ -114,6 +114,19 @@
+     return "https://instagram.com/" + trimmed.replace("@", "");
+   }
+ 
++  function cortinaSuggestionsHtml() {
++    const suggestions = [
++      "Hotel lounge bars in the town center",
++      "Neighborhood pasticcerie for espresso + pastries",
++      "Apres-ski bars near Corso Italia",
++    ];
++    return (
++      "<ul class=\"cortina-list\">" +
++      suggestions.map((item) => "<li>" + item + "</li>").join("") +
++      "</ul>"
++    );
++  }
++
+   cityEntries.forEach((city) => {
+     city.cafes.forEach((cafe) => {
+       const id = buildCafeId(city.name, cafe);
+@@ -277,7 +290,9 @@
+       container.innerHTML =
+         "<h3 class=\"sheet-title\">Cortina d'Ampezzo</h3>" +
+         "<p class=\"sheet-meta\">Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+-        "<p class=\"sheet-meta\">Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>";
++        "<p class=\"sheet-meta\">Try traditional espresso bars at hotel lounges or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
++        "<p class=\"sheet-meta\">Traditional picks (no verified names in the research data):</p>" +
++        cortinaSuggestionsHtml();
+       return;
+     }
+ 
+@@ -327,7 +342,9 @@
+         "<div class=\"cortina-card\">" +
+         "<h3>No Third-Wave Coffee</h3>" +
+         "<p>Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+-        "<p>Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
++        "<p>Try traditional espresso bars at hotel lounges or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
++        "<p>Traditional picks (no verified names in the research data):</p>" +
++        cortinaSuggestionsHtml() +
+         "</div>";
+       return;
+     }
+
+
+thinking
+**Preparing final response and suggestions**
+codex
+Added a Cortina-specific traditional bar suggestions list in both the map sheet and list view while explicitly noting that no verified names exist in the research data, so we stay within the “no invented cafes” constraint. Styled the new list for the warm editorial look.
+
+Details:
+- Updated Cortina copy and suggestions list in `js/app.js`.
+- Added list styling for the Cortina block in `css/style.css`.
+
+Next steps:
+1. Open `index.html` directly and check Cortina in Map and List views.
+2. Verify the map loads and markers render without console errors.
+file update:
+diff --git a/css/style.css b/css/style.css
+index ca5cbf6ea79a4bac3ec36d05f8b0f04c0dd8c8cb..829414e5d4d51bf5ce60087f28d171723c3596c3
+--- a/css/style.css
++++ b/css/style.css
+@@ -486,6 +486,14 @@
+   box-shadow: var(--shadow);
+ }
+ 
++.cortina-list {
++  margin: 0;
++  padding-left: 1.1rem;
++  color: #5a4a40;
++  display: grid;
++  gap: 0.35rem;
++}
++
+ .back-button {
+   min-height: var(--tap);
+   padding: 0 1rem;
+diff --git a/js/app.js b/js/app.js
+index 8112cb10267576393b731d127600827b5d27f080..37fe2f6a15d0ce2328fe8697e353860336ad34fe
+--- a/js/app.js
++++ b/js/app.js
+@@ -114,6 +114,19 @@
+     return "https://instagram.com/" + trimmed.replace("@", "");
+   }
+ 
++  function cortinaSuggestionsHtml() {
++    const suggestions = [
++      "Hotel lounge bars in the town center",
++      "Neighborhood pasticcerie for espresso + pastries",
++      "Apres-ski bars near Corso Italia",
++    ];
++    return (
++      "<ul class=\"cortina-list\">" +
++      suggestions.map((item) => "<li>" + item + "</li>").join("") +
++      "</ul>"
++    );
++  }
++
+   cityEntries.forEach((city) => {
+     city.cafes.forEach((cafe) => {
+       const id = buildCafeId(city.name, cafe);
+@@ -277,7 +290,9 @@
+       container.innerHTML =
+         "<h3 class=\"sheet-title\">Cortina d'Ampezzo</h3>" +
+         "<p class=\"sheet-meta\">Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+-        "<p class=\"sheet-meta\">Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>";
++        "<p class=\"sheet-meta\">Try traditional espresso bars at hotel lounges or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
++        "<p class=\"sheet-meta\">Traditional picks (no verified names in the research data):</p>" +
++        cortinaSuggestionsHtml();
+       return;
+     }
+ 
+@@ -327,7 +342,9 @@
+         "<div class=\"cortina-card\">" +
+         "<h3>No Third-Wave Coffee</h3>" +
+         "<p>Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+-        "<p>Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
++        "<p>Try traditional espresso bars at hotel lounges or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
++        "<p>Traditional picks (no verified names in the research data):</p>" +
++        cortinaSuggestionsHtml() +
+         "</div>";
+       return;
+     }
+
+tokens used
+38,521
+Added a Cortina-specific traditional bar suggestions list in both the map sheet and list view while explicitly noting that no verified names exist in the research data, so we stay within the “no invented cafes” constraint. Styled the new list for the warm editorial look.
+
+Details:
+- Updated Cortina copy and suggestions list in `js/app.js`.
+- Added list styling for the Cortina block in `css/style.css`.
+
+Next steps:
+1. Open `index.html` directly and check Cortina in Map and List views.
+2. Verify the map loads and markers render without console errors.

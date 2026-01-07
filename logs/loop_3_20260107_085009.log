@@ -1,0 +1,675 @@
+OpenAI Codex v0.77.0 (research preview)
+--------
+workdir: /Users/clawdius/clawd/third-wave-cafes
+model: gpt-5.2-codex
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: none
+reasoning summaries: auto
+session id: 019b98ef-c863-7431-ad27-3a1e71ac52c8
+--------
+user
+# Third Wave Coffee Map - Babymoon Trip
+
+## Project Goal
+Build a mobile-first web app showing specialty/third-wave coffee shops for a babymoon trip through Europe. The data has already been researched - your job is to build a beautiful, functional app.
+
+## Trip Itinerary
+- Paris: Jan 6-10, 2026 (22 cafés)
+- Switzerland: Jan 23-30, 2026 (11 cafés across 6 cities)
+- Venice: Jan 13-14, 2026 (5 cafés)
+- Milan: Jan 14-16, 2026 (10 cafés)
+- Cortina d'Ampezzo: Jan 10-13, 2026 (NO specialty coffee - be honest about this)
+
+## Data Source
+The verified café data is in `chatgpt-research-full.json` (48 cafés total). DO NOT invent new cafés. Only use data from this file.
+
+## Technical Stack
+- Pure HTML/CSS/JS (NO frameworks, NO build tools, NO npm)
+- Mobile-first responsive design
+- Mapbox GL JS for interactive maps
+- Single page app with client-side routing
+- Must work when opened directly as file:// (for testing)
+
+## Design Requirements
+
+### Visual Style
+- Warm, editorial aesthetic (think specialty coffee shop vibes)
+- Color palette: cream (#FDF6E3), warm brown (#8B4513), charcoal (#2D2D2D), accent gold (#D4A574)
+- Typography: System fonts, generous line-height (1.6+)
+- No stock photos - use solid color cards with good typography
+- Subtle shadows, rounded corners (8px)
+
+### Mobile UX (CRITICAL)
+- 44px minimum tap targets
+- Bottom navigation bar (thumb-friendly)
+- Card-based café list with swipe hints
+- Pull-to-refresh gesture feel
+- Smooth 60fps animations
+- Test at 375px width (iPhone SE)
+
+### Map Requirements
+- Mapbox GL JS with custom markers
+- Cluster markers when zoomed out
+- Popup on tap showing café name + "Get Directions" link
+- City-level zoom presets
+- Current location button (if permitted)
+
+## Features
+
+### 1. City Selector (Landing)
+- Large tappable cards for each city
+- Show café count per city
+- Beautiful city imagery or color gradient backgrounds
+
+### 2. Map View
+- Full-screen map with bottom sheet
+- Markers colored by city
+- Tap marker → show café card
+- "List View" toggle
+
+### 3. List View
+- Scrollable cards organized by neighborhood
+- Each card shows: Name, Neighborhood, Hours summary, Specialty type
+- Tap card → expand with full details + directions link
+
+### 4. Café Detail
+- Full address
+- Opening hours by day
+- Specialty type (espresso/filter/roastery)
+- Instagram link if available
+- January closure notes (important for trip planning!)
+- "Open in Google Maps" button
+
+### 5. Cortina Special Case
+- Honest message: "Cortina d'Ampezzo doesn't have third-wave specialty coffee shops"
+- Suggest enjoying traditional Italian espresso bars instead
+- List 2-3 recommended traditional bars
+
+## File Structure
+```
+/
+├── index.html          (single HTML file with all structure)
+├── css/
+│   └── style.css       (all styles, mobile-first)
+├── js/
+│   ├── app.js          (main app logic, routing, UI)
+│   ├── data.js         (café data exported from JSON)
+│   └── map.js          (Mapbox integration)
+├── chatgpt-research-full.json  (source data - DO NOT MODIFY)
+└── README.md
+```
+
+## Mapbox Token
+```
+pk.eyJ1IjoiYWxlamFuZHJvb3BpIiwiYSI6ImNtNWw0dnBoZzJhbHkya3B6ZWVsMnRqdXEifQ.Uh_ceEJWjudge6xy9GnXTA
+```
+
+## Coordinates Note
+Many cafés in the JSON have null coordinates. For these:
+1. Use the neighborhood name to place them approximately
+2. Or geocode the address using Mapbox Geocoding API
+3. Group null-coordinate cafés at city center with a note
+
+## Quality Checklist
+- [ ] Loads without errors in browser console
+- [ ] All 48 cafés from JSON are displayed
+- [ ] Map shows markers (even if clustered at city centers)
+- [ ] Mobile layout works at 375px width
+- [ ] Tap targets are 44px minimum
+- [ ] No horizontal scroll on mobile
+- [ ] Cortina shows honest "no specialty coffee" message
+- [ ] Links to Google Maps work
+- [ ] Colors match the warm coffee palette
+- [ ] Smooth scrolling and transitions
+
+## Anti-Patterns to Avoid
+- DO NOT use ES modules (import/export) - they don't work with file://
+- DO NOT fetch local JSON - embed the data in data.js
+- DO NOT use placeholder images from external URLs
+- DO NOT invent café data not in the JSON
+- DO NOT use complex build tools
+mcp startup: no servers
+
+thinking
+**Searching for AGENTS instructions**
+exec
+/bin/zsh -lc ls in /Users/clawdius/clawd/third-wave-cafes succeeded in 23ms:
+@AGENT.md
+@fix_plan.md
+PROMPT.md
+README.md
+babymoon-coffee-full.csv
+babymoon-coffee-full.kml
+babymoon-coffee.csv
+babymoon-coffee.kml
+chatgpt-research-full.json
+coffee-guide.html
+coffee-guide.md
+coffee-guide.pdf
+css
+index.html
+js
+logs
+research-chatgpt-pro.json
+research-prompt-v2.txt
+research-v2.log
+run-research-v2.sh
+
+thinking
+**Searching for AGENT.md file**
+exec
+/bin/zsh -lc 'cat @AGENT.md' in /Users/clawdius/clawd/third-wave-cafes succeeded in 26ms:
+# Agent Build Instructions for Third-Wave Coffee App
+
+## Project Type
+This is a **pure static web project** - NO npm, NO build tools, NO frameworks.
+
+## How to Build
+```bash
+# There is no build step. The files are ready to serve.
+# To test locally, use Python's built-in server:
+python3 -m http.server 8000
+
+# Or use any static file server
+```
+
+## How to Test
+1. Open `index.html` in a browser
+2. Test on mobile: Chrome DevTools → Toggle Device Toolbar → iPhone SE (375px)
+3. Check browser console for errors (should be zero)
+4. Verify all 48 cafés load from the data
+5. Test map markers appear
+
+thinking
+**Inspecting key files with ripgrep**
+exec
+/bin/zsh -lc "sed -n '1,200p' index.html" in /Users/clawdius/clawd/third-wave-cafes succeeded in 23ms:
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Third Wave Coffee Map - Babymoon Trip</title>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <div class="header-inner">
+          <p class="eyebrow">Babymoon Coffee Map</p>
+          <h1>Third Wave Stops Across Europe</h1>
+          <p class="subhead">
+            Mobile-first guide to third-wave cafes in Paris, Venice, Milan, and Switzerland.
+            Cortina d'Ampezzo is included with an honest note.
+          </p>
+        </div>
+exec
+/bin/zsh -lc "sed -n '1,200p' css/style.css" in /Users/clawdius/clawd/third-wave-cafes succeeded in 22ms:
+:root {
+  color-scheme: light;
+  --cream: #fdf6e3;
+  --brown: #8b4513;
+  --charcoal: #2d2d2d;
+  --gold: #d4a574;
+  --card: #fff9ee;
+  --muted: #6b5a4e;
+  --shadow: 0 16px 30px rgba(45, 45, 45, 0.12);
+  --radius: 8px;
+  --tap: 44px;
+  --max-width: 1100px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+exec
+/bin/zsh -lc "sed -n '1,200p' js/app.js" in /Users/clawdius/clawd/third-wave-cafes succeeded in 27ms:
+(function () {
+  const data = window.CAFE_DATA;
+  if (!data || !data.cities) return;
+
+  const CITY_ORDER = [
+    "Paris",
+    "Cortina d'Ampezzo",
+    "Venice",
+    "Milan",
+    "Zurich",
+    "Geneva",
+    "Lausanne",
+    "Bern",
+    "Basel",
+    "Lucerne",
+  ];
+
+  const cityEntries = Object.keys(data.cities)
+    .map((key) => {
+      let name = key;
+exec
+/bin/zsh -lc "sed -n '1,200p' js/map.js" in /Users/clawdius/clawd/third-wave-cafes succeeded in 28ms:
+(function () {
+  const ACCESS_TOKEN =
+    "pk.eyJ1IjoiYWxlamFuZHJvb3BpIiwiYSI6ImNtNWw0dnBoZzJhbHkya3B6ZWVsMnRqdXEifQ.Uh_ceEJWjudge6xy9GnXTA";
+
+  const DEFAULT_VIEW = {
+    center: [7.5, 46.5],
+    zoom: 4.3,
+  };
+
+  const CITY_COLORS = {
+    Paris: "#8B4513",
+    "Cortina d'Ampezzo": "#B6845F",
+    Venice: "#C98A4B",
+    Milan: "#A85E2B",
+    Zurich: "#B0723B",
+    Geneva: "#B87A3E",
+    Lausanne: "#B06B36",
+    Bern: "#9F5C32",
+    Basel: "#B47A45",
+    Lucerne: "#A96A3C",
+exec
+/bin/zsh -lc "sed -n '1,200p' js/data.js" in /Users/clawdius/clawd/third-wave-cafes succeeded in 23ms:
+// Auto-generated from chatgpt-research-full.json
+// DO NOT EDIT - regenerate from source
+
+window.CAFE_DATA = {
+  "meta": {
+    "trip_context": "Babymoon trip - third-wave/specialty coffee focus",
+    "dates": {
+      "Paris": "2026-01-06 to 2026-01-10",
+      "Cortina_dAmpezzo": "2026-01-10 to 2026-01-13",
+      "Venice": "2026-01-13 to 2026-01-14",
+      "Milan": "2026-01-14 to 2026-01-16",
+      "Switzerland": "Dates not specified"
+    },
+    "notes": [
+      "Opening hours can change seasonally and around holidays. Use Instagram/Google Maps for day-of confirmation.",
+      "Coordinates were only available for a small subset of venues from the captured sources in this session; most entries include null coordinates."
+    ],
+    "coordinates_status": "partial"
+  },
+  "cities": {
+
+thinking
+**Checking additional files for context**
+exec
+/bin/zsh -lc "sed -n '200,400p' js/app.js" in /Users/clawdius/clawd/third-wave-cafes succeeded in 31ms:
+          item.dates +
+          "</span><br><span>" +
+          countText +
+          "</span>" +
+          (item.subtitle ? "<br><span>" + item.subtitle + "</span>" : "") +
+          "</div>"
+        );
+      })
+      .join("");
+  }
+
+  function cityClass(name) {
+    if (name === "Cortina d'Ampezzo") return "cortina";
+    return name.toLowerCase().split(" ")[0];
+  }
+
+  function renderCityCards() {
+    const container = document.getElementById("city-cards");
+    if (!container) return;
+    container.innerHTML = cityEntries
+exec
+/bin/zsh -lc "sed -n '400,800p' js/app.js" in /Users/clawdius/clawd/third-wave-cafes succeeded in 29ms:
+                  instagram +
+                  "\" target=\"_blank\">Instagram</a>"
+                : "") +
+              "<button class=\"secondary-button\" type=\"button\" data-action=\"open-detail\" data-id=\"" +
+              cafe.id +
+              "\">Full details</button>" +
+              "</div>" +
+              "</article>"
+            );
+          })
+          .join("");
+
+        return (
+          "<section class=\"neighborhood-group\">" +
+          "<h4 class=\"neighborhood-title\">" +
+          neighborhood +
+          "</h4>" +
+          cards +
+          "</section>"
+        );
+
+thinking
+**Checking CSS completeness**
+exec
+/bin/zsh -lc "sed -n '200,400p' css/style.css" in /Users/clawdius/clawd/third-wave-cafes succeeded in 27ms:
+.city-card.zurich,
+.city-card.geneva,
+.city-card.lausanne,
+.city-card.bern,
+.city-card.basel,
+.city-card.lucerne {
+  background: linear-gradient(135deg, #f9e6c8, #f0cfa1);
+}
+
+.trip-strip {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.trip-pill {
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+exec
+/bin/zsh -lc "sed -n '400,800p' css/style.css" in /Users/clawdius/clawd/third-wave-cafes succeeded in 23ms:
+
+.cafe-card:active {
+  transform: translateY(1px);
+}
+
+.cafe-card .card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.cafe-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.cafe-badge {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+
+thinking
+**Checking remaining map.js content**
+exec
+/bin/zsh -lc "sed -n '200,400p' js/map.js" in /Users/clawdius/clawd/third-wave-cafes succeeded in 26ms:
+      return;
+    }
+    const center = cityCenters[city];
+    if (center) {
+      map.easeTo({ center: center, zoom: 12 });
+    }
+  }
+
+  function resize() {
+    if (map) map.resize();
+  }
+
+  window.MapView = {
+    ensureInit,
+    updateData,
+    fitToCity,
+    resize,
+  };
+})();
+
+thinking
+**Evaluating data against requirements**
+exec
+/bin/zsh -lc 'rg -n "Cortina|cortina" chatgpt-research-full.json' in /Users/clawdius/clawd/third-wave-cafes succeeded in 32ms:
+6:      "Cortina_dAmpezzo": "2026-01-10 to 2026-01-13",
+947:    "Cortina_dAmpezzo": {
+950:        "No clearly verified 'third-wave/specialty' cafés in Cortina d'Ampezzo were captured in the sources available in this session.",
+exec
+/bin/zsh -lc "sed -n '930,980p' chatgpt-research-full.json" in /Users/clawdius/clawd/third-wave-cafes succeeded in 26ms:
+              "Sat": "09:00-17:00",
+              "Sun": "Closed"
+            },
+            "specialty": {
+              "espresso": true,
+              "filter": true,
+              "roastery": "unknown"
+            },
+            "instagram_handle": null,
+            "january_closure_notes": "Closed Sundays; confirm for any early-January holiday schedule changes.",
+            "source_hints": [
+              "European Coffee Trip profile (captured in session)"
+            ]
+          }
+        ]
+      }
+    },
+    "Cortina_dAmpezzo": {
+      "Centro": [],
+      "notes": [
+
+thinking
+**Evaluating traditional bars listing constraints**
+exec
+/bin/zsh -lc 'rg -n "instagram" js/data.js' in /Users/clawdius/clawd/third-wave-cafes succeeded in 33ms:
+48:          "instagram": null,
+72:          "instagram": null,
+96:          "instagram": null,
+120:          "instagram": null,
+144:          "instagram": null,
+168:          "instagram": null,
+192:          "instagram": null,
+210:          "instagram": null,
+228:          "instagram": null,
+246:          "instagram": null,
+264:          "instagram": null,
+282:          "instagram": null,
+300:          "instagram": null,
+318:          "instagram": null,
+336:          "instagram": null,
+354:          "instagram": null,
+372:          "instagram": null,
+396:          "instagram": null,
+420:          "instagram": null,
+444:          "instagram": null,
+
+thinking
+**Reviewing map and list view features**
+
+I'm going over the map and list view functionalities to verify key features like city zoom presets, current location button, card-based café lists with swipe hints, and smooth animations. I'm also double-checking if the app respects accessibility guidelines (like tap target size) and technical constraints (Mapbox GL JS usage with file:// protocol). Additionally, I’m considering how to handle the user's request for recommended traditional bars without inventing new entries, given the data limitations. It looks like placeholders or generic category mentions might be the only safe way to address that.
+exec
+/bin/zsh -lc 'rg -n "Cortina" -S .' in /Users/clawdius/clawd/third-wave-cafes succeeded in 47ms:
+./chatgpt-research-full.json:6:      "Cortina_dAmpezzo": "2026-01-10 to 2026-01-13",
+./chatgpt-research-full.json:947:    "Cortina_dAmpezzo": {
+./chatgpt-research-full.json:950:        "No clearly verified 'third-wave/specialty' cafés in Cortina d'Ampezzo were captured in the sources available in this session.",
+./research-chatgpt-pro.json:8:      { "city": "Cortina d'Ampezzo", "country": "IT", "dates": { "start": "2026-01-10", "end": "2026-01-13" } },
+./research-chatgpt-pro.json:25:      "city": "Cortina d'Ampezzo",
+./logs/loop_1_20260107_083241.log:23:- Cortina d'Ampezzo: Jan 10-13, 2026 (NO specialty coffee - be honest about this)
+./logs/loop_1_20260107_083241.log:85:### 5. Cortina Special Case
+./logs/loop_1_20260107_083241.log:86:- Honest message: "Cortina d'Ampezzo doesn't have third-wave specialty coffee shops"
+./logs/loop_1_20260107_083241.log:122:- [ ] Cortina shows honest "no specialty coffee" message
+./logs/loop_1_20260107_083241.log:233:      "Cortina_dAmpezzo": "2026-01-10 to 2026-01-13",
+./logs/loop_1_20260107_083241.log:265:          Mobile-first map and list for Paris, Cortina, Venice, and Milan. Cafe data
+./logs/loop_1_20260107_083241.log:301:/bin/zsh -lc 'rg -n "Cortina|Embassy|Lovat|bar" -S' in /Users/clawdius/clawd/third-wave-cafes succeeded in 68ms:
+./logs/loop_1_20260107_083241.log:302:chatgpt-research-full.json:6:      "Cortina_dAmpezzo": "2026-01-10 to 2026-01-13",
+./logs/loop_1_20260107_083241.log:303:chatgpt-research-full.json:947:    "Cortina_dAmpezzo": {
+./logs/loop_1_20260107_083241.log:304:chatgpt-research-full.json:950:        "No clearly verified 'third-wave/specialty' cafés in Cortina d'Ampezzo were captured in the sources available in this session.",
+./logs/loop_1_20260107_083241.log:305:research-chatgpt-pro.json:8:      { "city": "Cortina d'Ampezzo", "country": "IT", "dates": { "start": "2026-01-10", "end": "2026-01-13" } },
+./logs/loop_1_20260107_083241.log:306:research-chatgpt-pro.json:25:      "city": "Cortina d'Ampezzo",
+./logs/loop_1_20260107_083241.log:308:logs/loop_1_20260107_083241.log:23:- Cortina d'Ampezzo: Jan 10-13, 2026 (NO specialty coffee - be honest about this)
+./logs/loop_1_20260107_083241.log:310:logs/loop_1_20260107_083241.log:85:### 5. Cortina Special Case
+./logs/loop_1_20260107_083241.log:311:logs/loop_1_20260107_083241.log:86:- Honest message: "Cortina d'Ampezzo doesn't have third-wave specialty coffee shops"
+
+thinking
+**Evaluating app requirements and data usage**
+exec
+/bin/zsh -lc "sed -n '1,120p' coffee-guide.md" in /Users/clawdius/clawd/third-wave-cafes succeeded in 30ms:
+# Third Wave Coffee Guide
+## Babymoon Trip - January 2026
+
+---
+
+# Paris
+**January 6-10, 2026**
+
+### KB Pigalle
+- **Address:** 53 Avenue Trudaine, 75009 Paris
+- **Hours:** 07:45-18:30 (weekdays), 09:00-18:30 (weekends)
+- **Instagram:** @kbcoffeeroastersparis
+- **Known for:** Espresso, filter, cold brew, plant-based options
+
+### Ten Belles
+- **Address:** 10 Rue de la Grange aux Belles, 75010 Paris
+- **Hours:** 08:30-17:30 daily
+- **Known for:** Specialty coffee, excellent pastries
+
+### Kott Cafe
+
+thinking
+**Reviewing data constraints and UI text updates**
+file update
+M /Users/clawdius/clawd/third-wave-cafes/js/app.js
+@@ -173,3 +173,3 @@
+       title: "Switzerland",
+-      dates: data.meta.dates.Switzerland,
++      dates: "2026-01-23 to 2026-01-30",
+       count: swissCount,
+@@ -278,3 +278,3 @@
+         "<h3 class=\"sheet-title\">Cortina d'Ampezzo</h3>" +
+-        "<p class=\"sheet-meta\">No verified third-wave specialty cafes.</p>" +
++        "<p class=\"sheet-meta\">Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+         "<p class=\"sheet-meta\">Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>";
+@@ -328,3 +328,3 @@
+         "<h3>No Third-Wave Coffee</h3>" +
+-        "<p>Cortina d'Ampezzo doesn't have verified third-wave specialty cafes in the dataset.</p>" +
++        "<p>Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+         "<p>Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
+apply_patch(auto_approved=true) exited 0 in 29ms:
+Success. Updated the following files:
+M js/app.js
+file update:
+diff --git a/js/app.js b/js/app.js
+index da1ee0063ba4548b34337ff754bd6a1cf72ea656..8112cb10267576393b731d127600827b5d27f080
+--- a/js/app.js
++++ b/js/app.js
+@@ -171,7 +171,7 @@
+     },
+     {
+       title: "Switzerland",
+-      dates: data.meta.dates.Switzerland,
++      dates: "2026-01-23 to 2026-01-30",
+       count: swissCount,
+       subtitle: "Across 6 cities",
+     },
+@@ -276,7 +276,7 @@
+     if (cityName === "Cortina d'Ampezzo") {
+       container.innerHTML =
+         "<h3 class=\"sheet-title\">Cortina d'Ampezzo</h3>" +
+-        "<p class=\"sheet-meta\">No verified third-wave specialty cafes.</p>" +
++        "<p class=\"sheet-meta\">Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+         "<p class=\"sheet-meta\">Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>";
+       return;
+     }
+@@ -326,7 +326,7 @@
+       container.innerHTML =
+         "<div class=\"cortina-card\">" +
+         "<h3>No Third-Wave Coffee</h3>" +
+-        "<p>Cortina d'Ampezzo doesn't have verified third-wave specialty cafes in the dataset.</p>" +
++        "<p>Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+         "<p>Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
+         "</div>";
+       return;
+
+file update:
+diff --git a/js/app.js b/js/app.js
+index da1ee0063ba4548b34337ff754bd6a1cf72ea656..8112cb10267576393b731d127600827b5d27f080
+--- a/js/app.js
++++ b/js/app.js
+@@ -171,7 +171,7 @@
+     },
+     {
+       title: "Switzerland",
+-      dates: data.meta.dates.Switzerland,
++      dates: "2026-01-23 to 2026-01-30",
+       count: swissCount,
+       subtitle: "Across 6 cities",
+     },
+@@ -276,7 +276,7 @@
+     if (cityName === "Cortina d'Ampezzo") {
+       container.innerHTML =
+         "<h3 class=\"sheet-title\">Cortina d'Ampezzo</h3>" +
+-        "<p class=\"sheet-meta\">No verified third-wave specialty cafes.</p>" +
++        "<p class=\"sheet-meta\">Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+         "<p class=\"sheet-meta\">Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>";
+       return;
+     }
+@@ -326,7 +326,7 @@
+       container.innerHTML =
+         "<div class=\"cortina-card\">" +
+         "<h3>No Third-Wave Coffee</h3>" +
+-        "<p>Cortina d'Ampezzo doesn't have verified third-wave specialty cafes in the dataset.</p>" +
++        "<p>Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+         "<p>Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
+         "</div>";
+       return;
+
+
+thinking
+**Preparing final response with suggestions**
+
+I'm wrapping up by explaining the updates made around the Switz date usage and messaging adjustments, especially about the generic traditional espresso bars since specific Cortina bars aren't listed due to data constraints. I'll mention the option to incorporate detailed bar info if the user permits using an external source like coffee-guide. Then, I'll include file references and a clear suggestion list with next steps for how to proceed.
+codex
+Updated the trip strip to show the Switzerland dates from the itinerary and made the Cortina message match the requested wording while keeping the guidance general (no new venues added). This keeps the UI aligned with the itinerary and the “no specialty coffee” requirement without violating the JSON-only data rule.
+
+Details:
+- Switzerland dates now read “2026-01-23 to 2026-01-30” in the trip strip via `js/app.js`.
+- Cortina copy now uses the exact “doesn’t have third-wave specialty coffee shops” phrasing in both the map sheet and list special case in `js/app.js`.
+
+Notes:
+- I didn’t list specific traditional bars for Cortina because `chatgpt-research-full.json` doesn’t include any. If you want named bars, I can add them from another approved source.
+
+Next steps (pick one):
+1. I can wire in specific traditional bars for Cortina if you want to allow using another source (e.g., `coffee-guide.md`).
+2. I can do a quick manual verification pass (open `index.html`, check console, 375px layout, and counts).
+file update:
+diff --git a/js/app.js b/js/app.js
+index da1ee0063ba4548b34337ff754bd6a1cf72ea656..8112cb10267576393b731d127600827b5d27f080
+--- a/js/app.js
++++ b/js/app.js
+@@ -171,7 +171,7 @@
+     },
+     {
+       title: "Switzerland",
+-      dates: data.meta.dates.Switzerland,
++      dates: "2026-01-23 to 2026-01-30",
+       count: swissCount,
+       subtitle: "Across 6 cities",
+     },
+@@ -276,7 +276,7 @@
+     if (cityName === "Cortina d'Ampezzo") {
+       container.innerHTML =
+         "<h3 class=\"sheet-title\">Cortina d'Ampezzo</h3>" +
+-        "<p class=\"sheet-meta\">No verified third-wave specialty cafes.</p>" +
++        "<p class=\"sheet-meta\">Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+         "<p class=\"sheet-meta\">Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>";
+       return;
+     }
+@@ -326,7 +326,7 @@
+       container.innerHTML =
+         "<div class=\"cortina-card\">" +
+         "<h3>No Third-Wave Coffee</h3>" +
+-        "<p>Cortina d'Ampezzo doesn't have verified third-wave specialty cafes in the dataset.</p>" +
++        "<p>Cortina d'Ampezzo doesn't have third-wave specialty coffee shops.</p>" +
+         "<p>Try traditional espresso bars at hotel lounges, pasticcerias, or local bars. Search \"espresso bar\", \"pasticceria\", or \"hotel bar\" on Google Maps.</p>" +
+         "</div>";
+       return;
+
+tokens used
+32,881
+Updated the trip strip to show the Switzerland dates from the itinerary and made the Cortina message match the requested wording while keeping the guidance general (no new venues added). This keeps the UI aligned with the itinerary and the “no specialty coffee” requirement without violating the JSON-only data rule.
+
+Details:
+- Switzerland dates now read “2026-01-23 to 2026-01-30” in the trip strip via `js/app.js`.
+- Cortina copy now uses the exact “doesn’t have third-wave specialty coffee shops” phrasing in both the map sheet and list special case in `js/app.js`.
+
+Notes:
+- I didn’t list specific traditional bars for Cortina because `chatgpt-research-full.json` doesn’t include any. If you want named bars, I can add them from another approved source.
+
+Next steps (pick one):
+1. I can wire in specific traditional bars for Cortina if you want to allow using another source (e.g., `coffee-guide.md`).
+2. I can do a quick manual verification pass (open `index.html`, check console, 375px layout, and counts).
