@@ -1,6 +1,6 @@
 (function () {
   const ACCESS_TOKEN =
-    "pk.eyJ1IjoiYWxlamFuZHJvb3BpIiwiYSI6ImNtNWw0dnBoZzJhbHkya3B6ZWVsMnRqdXEifQ.Uh_ceEJWjudge6xy9GnXTA";
+    "pk.eyJ1IjoiYW1hemE4NyIsImEiOiJjbWs0Y29nZWwwNXpwM3ByNTB1OWJ6a21rIn0.Loi_OqKVMnMOBMC2oENREA";
 
   const DEFAULT_VIEW = {
     center: [7.5, 46.5],
