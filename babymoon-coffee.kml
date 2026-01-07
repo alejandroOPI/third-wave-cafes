@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Babymoon Coffee Guide 2026</name>
+    <description>Third-wave specialty coffee shops for Paris, Venice, and Milan</description>
+    
+    <Style id="paris">
+      <IconStyle><color>ff0000ff</color><Icon><href>http://maps.google.com/mapfiles/kml/paddle/red-circle.png</href></Icon></IconStyle>
+    </Style>
+    <Style id="venice">
+      <IconStyle><color>ff00ff00</color><Icon><href>http://maps.google.com/mapfiles/kml/paddle/grn-circle.png</href></Icon></IconStyle>
+    </Style>
+    <Style id="milan">
+      <IconStyle><color>ffff0000</color><Icon><href>http://maps.google.com/mapfiles/kml/paddle/blu-circle.png</href></Icon></IconStyle>
+    </Style>
+
+    <Folder>
+      <name>Paris (Jan 6-10)</name>
+      <Placemark>
+        <name>KB Pigalle</name>
+        <description>Specialty coffee - espresso, filter, cold brew. Hours: 07:45-18:30</description>
+        <styleUrl>#paris</styleUrl>
+        <Point><coordinates>2.3404,48.8818,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Ten Belles</name>
+        <description>Specialty coffee and pastries. Hours: 08:30-17:30</description>
+        <styleUrl>#paris</styleUrl>
+        <Point><coordinates>2.3647,48.8737,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Kott Cafe</name>
+        <description>Espresso, filter, cold brew. Hours: 08:30-16:30 (Mon-Fri)</description>
+        <styleUrl>#paris</styleUrl>
+        <Point><coordinates>2.3700,48.8640,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Belleville Brulerie</name>
+        <description>House-roasted beans, roastery. Hours: 11:00-19:30 (Tue-Sat)</description>
+        <styleUrl>#paris</styleUrl>
+        <Point><coordinates>2.3827,48.8850,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Cafe Pigalle</name>
+        <description>Third-wave specialty. Hours: 08:30-16:00</description>
+        <styleUrl>#paris</styleUrl>
+        <Point><coordinates>2.3370,48.8820,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+    <Folder>
+      <name>Venice (Jan 13-14)</name>
+      <Placemark>
+        <name>ABC Zattere</name>
+        <description>Specialty coffee. WARNING: May be closed mid-January - verify before visiting! @abczattere</description>
+        <styleUrl>#venice</styleUrl>
+        <Point><coordinates>12.3260,45.4290,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Torrefazione Cannaregio</name>
+        <description>Local roastery - one of few specialty spots in Venice</description>
+        <styleUrl>#venice</styleUrl>
+        <Point><coordinates>12.3279,45.4457,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+    <Folder>
+      <name>Milan (Jan 14-16)</name>
+      <Placemark>
+        <name>Orsonero Coffee</name>
+        <description>Best specialty coffee in Milan! Hours: Tue-Fri 08:00-17:00, Sat 09:00-17:00, Sun 09:00-13:00. @orsonerocoffee</description>
+        <styleUrl>#milan</styleUrl>
+        <Point><coordinates>9.2111,45.4778,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>NOWHERE Future Coffee</name>
+        <description>Specialty coffee and brunch. Hours: Tue-Sun 08:30-16:00. @nowherecafe.milano</description>
+        <styleUrl>#milan</styleUrl>
+        <Point><coordinates>9.1790,45.4620,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Cafezal Brera</name>
+        <description>Brazilian roaster flagship. Hours: Mon-Fri 07:30-18:00</description>
+        <styleUrl>#milan</styleUrl>
+        <Point><coordinates>9.1870,45.4730,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Ditta Artigianale</name>
+        <description>Micro-roastery, brunch, cocktails. @dittaartigianale</description>
+        <styleUrl>#milan</styleUrl>
+        <Point><coordinates>9.1720,45.4650,0</coordinates></Point>
+      </Placemark>
+      <Placemark>
+        <name>Loste Cafe</name>
+        <description>Specialty coffee and pastries. @lostecafemilano</description>
+        <styleUrl>#milan</styleUrl>
+        <Point><coordinates>9.1750,45.4590,0</coordinates></Point>
+      </Placemark>
+    </Folder>
+
+  </Document>
+</kml>
